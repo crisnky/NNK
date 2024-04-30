@@ -1692,7 +1692,16 @@ function Com(com,...)
 		Remote:InvokeServer(...)
 	end
 end
-
+--BTPZ
+function BTPZ(Point)
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = Point
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = Point
+        end
+--BTP
+function BTP(Point)
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = Point
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = Point
+        end
 --BTP
 function BTP(Position)
 	game.Players.LocalPlayer.Character.Head:Destroy()
@@ -1730,8 +1739,6 @@ end
 		end 
     end
 end
-
-
      function toTarget(...)
     local RealtargetPos = { ... }
     local targetPos = RealtargetPos[1]
@@ -1745,7 +1752,7 @@ end
     end
     if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Health == 0 then
         if tween then tween:Cancel() end
-        repeat wait(getgenv().Fast_Delay) until game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Health > 0; wait(0.2)
+        repeat wait(0.2) until game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Health > 0; wait(0.2)
     end
     local tweenfunc = {}
     local Distance = (RealTarget.Position - game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position)
@@ -2100,13 +2107,13 @@ Type1 = 1
 spawn(function()
     while wait(.1) do
         if Type == 1 then
-            Pos = CFrame.new(10,40,10)
+            Random = CFrame.new(10,40,10)
         elseif Type == 2 then
-            Pos = CFrame.new(-30,10,-30)
+            Random = CFrame.new(-30,10,-30)
         elseif Type == 3 then
-            Pos = CFrame.new(10,10,-40)
+            Random = CFrame.new(10,10,-40)
         elseif Type == 4 then
-            Pos = CFrame.new(-40,10,10)	
+            Random = CFrame.new(-40,10,10)	
         end
         end
     end)
@@ -2114,13 +2121,13 @@ spawn(function()
 spawn(function()
     while wait(.1) do
         Type = 1
-        wait(1)
+        wait(0.1)
         Type = 2
-        wait(1)
+        wait(0.1)
         Type = 3
-        wait(1)
+        wait(0.1)
         Type = 4
-        wait(1)
+        wait(0.1)
     end
 end)
 --auto turn haki
@@ -2216,7 +2223,7 @@ local Farming = Tabs.Main:AddSection("Farming")
 local InputAttack = Tabs.Main:AddInput("InputAttack", {
     Title = "Delay Attack",
     Description = "Nhập Tốc Độ Đánh",
-    Default = 0.1,
+    Default = 0.175,
     Placeholder = "Input",
     Numeric = true, -- Only allows numbers
     Finished = true, -- Only calls callback when you press enter
@@ -2941,7 +2948,7 @@ spawn(function()
 										EquipTool(SelectWeapon)
 										v.HumanoidRootPart.Size = Vector3.new(60, 60, 60)
 										v.HumanoidRootPart.CanCollide = false
-										Tween(v.HumanoidRootPart.CFrame * Pos)
+										Tween(v.HumanoidRootPart.CFrame * Random)
 										--Click
 									until getgenv().CakePrince == false or not v.Parent or v.Humanoid.Health <= 0
                                     bringmob = false
@@ -3106,7 +3113,7 @@ local boss = Tabs.Main:AddSection("Boss Farm")
                                         v.HumanoidRootPart.CanCollide = false
                                         v.Humanoid.WalkSpeed = 0
                                         v.HumanoidRootPart.Size = Vector3.new(80,80,80)                             
-                                        Tween(v.HumanoidRootPart.CFrame * Pos)
+                                        Tween(v.HumanoidRootPart.CFrame * Random)
                                         sethiddenproperty(game:GetService("Players").LocalPlayer,"SimulationRadius",math.huge)
                                     until not getgenv().AutoBoss or not v.Parent or v.Humanoid.Health <= 0
                                 end
@@ -4284,7 +4291,7 @@ if Third_Sea then
                                                    v.Humanoid.WalkSpeed = 0
                                                    v.HumanoidRootPart.CanCollide = false
                                                    v.Humanoid:ChangeState(11)
-                                                   Tween(v.HumanoidRootPart.CFrame * Pos)
+                                                   Tween(v.HumanoidRootPart.CFrame * Random)
                                                until not AutoTushita or not v.Parent or v.Humanoid.Health <= 0
                                            end
                                        end
@@ -4388,7 +4395,7 @@ end
                                         v.HumanoidRootPart.CanCollide = false
                                         v.Humanoid.WalkSpeed = 0
                                         v.HumanoidRootPart.Size = Vector3.new(50,50,50)
-                                        Tween(v.HumanoidRootPart.CFrame * Pos)
+                                        Tween(v.HumanoidRootPart.CFrame * Random)
                                     until not getgenv().AutoCakeV2 or not v.Parent or v.Humanoid.Health <= 0
                                 end
                             end
@@ -6215,7 +6222,7 @@ spawn(function()
 				elseif game:GetService("Players").LocalPlayer.Data.Race.Value == "Fishman" then
 					for i,v in pairs(game:GetService("Workspace").SeaBeasts.SeaBeast1:GetDescendants()) do
 						if v.Name ==  "HumanoidRootPart" then
-							Tween(v.CFrame* Pos)
+							Tween(v.CFrame* Random)
 							for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
 								if v:IsA("Tool") then
 									if v.ToolTip == "Melee" then
