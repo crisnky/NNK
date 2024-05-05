@@ -4510,11 +4510,11 @@ end
 --Setting
 local SettingFarm = Tabs.Setting:AddSection("Farming")
 
-local ToggleFast = Tabs.Setting:AddToggle("ToggleFast", {Title = "Enabled Fast Attack",Description = "Đánh Nhanh", Default = true })
+local ToggleFast = Tabs.Setting:AddToggle("ToggleFast", {Title = "Enabled Far Attack",Description = "Đánh Xa", Default = false })
 ToggleFast:OnChanged(function(Value)
     getgenv().FastNe = Value
 end)
-Options.ToggleFast:SetValue(true)
+Options.ToggleFast:SetValue(false)
 
 local CameraShaker = require(game.ReplicatedStorage.Util.CameraShaker)
 CombatFrameworkR = require(game:GetService("Players").LocalPlayer.PlayerScripts.CombatFramework)
