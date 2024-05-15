@@ -6147,7 +6147,7 @@ Tabs.Race:AddButton({
 
 local Mastery = Tabs.Race:AddSection("Auto Race")
 Tabs.Race:AddButton({
-    Title = "Tween To Race Portal",
+    Title = "Tween To Race Door",
     Description = "Tộc Của bạn",
     Callback = function()
         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(28286.35546875, 14895.3017578125, 102.62469482421875))
