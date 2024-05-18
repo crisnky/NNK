@@ -2241,8 +2241,8 @@ spawn(function()
 --Create Tabs
 local Farming = Tabs.Main:AddSection("Farming")
 local InputAttack = Tabs.Main:AddInput("InputAttack", {
-    Title = "Delay Attack",
-    Description = "Nhập Tốc Độ Đánh",
+    Title = "Attack Delay",
+    Description = "",
     Default = 0.175,
     Placeholder = "Input",
     Numeric = true,
@@ -2254,6 +2254,7 @@ local InputAttack = Tabs.Main:AddInput("InputAttack", {
 })
 InputAttack:OnChanged(function(Value)
 	getgenv().Fast_Delay = Value
+    getgenv().DelayFastLow = Value
 end)
 
 local DropdownSelectWeapon = Tabs.Main:AddDropdown("DropdownSelectWeapon", {
@@ -2308,7 +2309,7 @@ local DropdownSelectWeapon = Tabs.Main:AddDropdown("DropdownSelectWeapon", {
 
     local ToggleLevel = Tabs.Main:AddToggle("ToggleLevel", {
         Title = "Auto Farm Level",
-        Description = "Cày Cấp Độ",
+        Description = "Cày Cấp",
         Default = false })
     ToggleLevel:OnChanged(function(Value)
         getgenv().AutoLevel = Value
@@ -2359,7 +2360,7 @@ local DropdownSelectWeapon = Tabs.Main:AddDropdown("DropdownSelectWeapon", {
         end
         end)
 
-        local ToggleCandy = Tabs.Main:AddToggle("ToggleCandy", {Title = "Auto Candies ( Wait Event Chrismas Back ! )",Description = "Cày Kẹo ( Đợi Sự kiện Trở Lại ! )", Default = false })
+        local ToggleCandy = Tabs.Main:AddToggle("ToggleCandy", {Title = "Auto Candies",Description = "Cày Kẹo", Default = false })
         ToggleCandy:OnChanged(function(Value)
            getgenv().AutoCandy = Value
            if Value == false then
@@ -2369,7 +2370,6 @@ local DropdownSelectWeapon = Tabs.Main:AddDropdown("DropdownSelectWeapon", {
         end
         end)
         Options.ToggleCandy:SetValue(false)
-
 		local CandyPos = CFrame.new(-16603.197265625, 130.3873748779297, 1087.16455078125)
 		spawn(function()
 				  while wait() do 
@@ -2404,7 +2404,6 @@ local DropdownSelectWeapon = Tabs.Main:AddDropdown("DropdownSelectWeapon", {
 					  end
 				  end
 			  end)
-
 --------------------------------------------------------------------------------------------------------------------------------------------
 
     local ToggleMobAura = Tabs.Main:AddToggle("ToggleMobAura", {
@@ -6975,6 +6974,5 @@ InterfaceManager:SetFolder("Fai Fao Hub")
 SaveManager:SetFolder("Fai Fao Hub/specific-game")
 InterfaceManager:BuildInterfaceSection(Tabs.Setting)
 SaveManager:BuildConfigSection(Tabs.Setting)
-Window:SelectTab(Setting)
 SaveManager:LoadAutoloadConfig()
 ----------------------------------------------------------------------------------------------------------------------------------------------
