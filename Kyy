@@ -3,7 +3,6 @@ local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/d
 local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/InterfaceManager.lua"))()
 ----------------------------------------------------------------------------------------------------------------------------------------------
 --Choose Team
-_G.Team = "Pirate"
 if game:GetService("Players").LocalPlayer.PlayerGui.Main:FindFirstChild("ChooseTeam")  then
     repeat wait()
         if game:GetService("Players").LocalPlayer.PlayerGui:WaitForChild("Main").ChooseTeam.Visible == true then
@@ -24,6 +23,23 @@ if game:GetService("Players").LocalPlayer.PlayerGui.Main:FindFirstChild("ChooseT
     until game.Players.LocalPlayer.Team ~= nil and game:IsLoaded()
 end
 -------------------------------------------------------------------------------------------------------------------------------------------
+-- AntiCheat
+
+    for i,v in pairs(game:GetService("Players").LocalPlayer.Character:GetDescendants()) do
+        if v:IsA("LocalScript") then
+            if v.Name == "General" or v.Name == "Shiftlock"  or v.Name == "FallDamage" or v.Name == "4444" or v.Name == "CamBob" or v.Name == "JumpCD" or v.Name == "Looking" or v.Name == "Run" then
+                v:Destroy()
+            end
+        end
+    end
+    for i,v in pairs(game:GetService("Players").LocalPlayer.PlayerScripts:GetDescendants()) do
+        if v:IsA("LocalScript") then
+            if v.Name == "RobloxMotor6DBugFix" or v.Name == "Clans"  or v.Name == "Codes" or v.Name == "CustomForceField" or v.Name == "MenuBloodSp"  or v.Name == "PlayerList" then
+                v:Destroy()
+            end
+        end
+    end
+-------------------------------------------------------------------------------------------------------------------------------------------
 local Window = Fluent:CreateWindow({
     Title = "Fai Fao Hub",
     SubTitle = "[ Blox Fruits ]",
@@ -34,17 +50,17 @@ local Window = Fluent:CreateWindow({
     MinimizeKey = Enum.KeyCode.LeftControl
 })
 local Tabs = {
-    Main = Window:AddTab({ Title = "+ Farming", Icon = "" }),
-    Setting = Window:AddTab({ Title = "+ Settings", Icon = "" }),
-    Stats = Window:AddTab({ Title = "+ Stats", Icon = "" }),
-    Player = Window:AddTab({ Title = "+ Players", Icon = "" }),
-    Teleport = Window:AddTab({ Title = "+ Teleport", Icon = "" }),
-    Fruit = Window:AddTab({ Title = "+ Fruits", Icon = "" }),
-    Raid = Window:AddTab({ Title = "+ Dungeon", Icon = "" }),
-    Race = Window:AddTab({ Title = "+ Race", Icon = "" }),
-    Shop = Window:AddTab({ Title = "+ Shops", Icon = "" }),
-	Misc = Window:AddTab({ Title = "+ Miscs", Icon = "" }),
-    Hop = Window:AddTab({ Title = "+ Hop Servers", Icon = "" }),
+    Main = Window:AddTab({ Title = "🏡 Farming 🏡", Icon = "" }),
+    Setting = Window:AddTab({ Title = "⚙️ Settings ⚙️", Icon = "" }),
+    Stats = Window:AddTab({ Title = "💊 Stats 💊", Icon = "" }),
+    Player = Window:AddTab({ Title = "👨‍✈️ Players 👨‍✈️", Icon = "" }),
+    Teleport = Window:AddTab({ Title = "🏝️ Teleport 🏝️", Icon = "" }),
+    Fruit = Window:AddTab({ Title = "🍌 Fruits 🍌", Icon = "" }),
+    Raid = Window:AddTab({ Title = "⚔️ Dungeon ⚔️", Icon = "" }),
+    Race = Window:AddTab({ Title = "🏇 Race 🏇", Icon = "" }),
+    Shop = Window:AddTab({ Title = "🛒 Shops 🛒", Icon = "" }),
+	Misc = Window:AddTab({ Title = "➕ Miscs ➕", Icon = "" }),
+    Hop = Window:AddTab({ Title = "🔃 Hop Servers 🔃", Icon = "" }),
 }
 local Options = Fluent.Options
 do
@@ -1849,11 +1865,11 @@ end
     return tweenfunc
 end
 ----------------------------------------------------------------------------------------------------------------------------------------------
-  TweenSpeed = 340
    function Tween(P1)
     local Distance = (P1.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
+
     if Distance >= 1 then
-    Speed = TweenSpeed
+    Speed = getgenv().TweenSpeed
     end
     game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart,TweenInfo.new(Distance/Speed, Enum.EasingStyle.Linear), {
       CFrame = P1
@@ -1873,64 +1889,6 @@ end
     getgenv().StopTween = false
     end
     end
-----------------------------------------------------------------------------------------------------------------------------------------------
-function toTargetP(CFgo)
-	if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Health <= 0 or not game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid") then tween:Cancel() repeat wait(getgenv().Fast_Delay) until game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid") and game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid").Health > 0 wait(7) return end
-	if (game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart.Position - CFgo.Position).Magnitude <= 150 then
-		pcall(function()
-			tween:Cancel()
-
-			game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart.CFrame = CFgo
-
-			return
-		end)
-	end
-	local tween_s = game:service"TweenService"
-	local info = TweenInfo.new((game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart.Position - CFgo.Position).Magnitude/325, Enum.EasingStyle.Linear)
-	tween = tween_s:Create(game.Players.LocalPlayer.Character["HumanoidRootPart"], info, {CFrame = CFgo})
-	tween:Play()
-
-	local tweenfunc = {}
-
-	function tweenfunc:Stop()
-		tween:Cancel()
-	end
-
-	return tweenfunc
-end
-
-    --function TP to Boat/Ship
-    function TweenShip(CFgo)
-        local tween_s = game:service"TweenService"
-        local info = TweenInfo.new((game:GetService("Workspace").Boats.MarineBrigade.VehicleSeat.CFrame.Position - CFgo.Position).Magnitude/300, Enum.EasingStyle.Linear)
-        tween = tween_s:Create(game:GetService("Workspace").Boats.MarineBrigade.VehicleSeat, info, {CFrame = CFgo})
-        tween:Play()
-    
-        local tweenfunc = {}
-    
-        function tweenfunc:Stop()
-            tween:Cancel()
-        end
-    
-        return tweenfunc
-    end
-    
-    function TweenBoat(CFgo)
-        if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Health <= 0 or not game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid") then tween:Cancel() repeat wait(getgenv().Fast_Delay) until game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid") and game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid").Health > 0 wait(7) return end
-        local tween_s = game:service"TweenService"
-        local info = TweenInfo.new((game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart.Position - CFgo.Position).Magnitude/325, Enum.EasingStyle.Linear)
-        tween = tween_s:Create(game.Players.LocalPlayer.Character["HumanoidRootPart"], info, {CFrame = CFgo})
-        tween:Play()
-    
-        local tweenfunc = {}
-    
-        function tweenfunc:Stop()
-            tween:Cancel()
-        end
-    
-        return tweenfunc
-    end
-
 --SelectTool
 function EquipTool(ToolSe)
 		if game.Players.LocalPlayer.Backpack:FindFirstChild(ToolSe) then
@@ -1939,9 +1897,7 @@ function EquipTool(ToolSe)
 			game.Players.LocalPlayer.Character.Humanoid:EquipTool(tool)
 		end
 	end
-    
-    --aimbot mastery
-
+--aimbot mastery
 	spawn(function()
 		local gg = getrawmetatable(game)
 		local old = gg.__namecall
@@ -1968,20 +1924,6 @@ function EquipTool(ToolSe)
 		  return old(...)
 		  end)
         end)
---Equip Gun
-spawn(function()
-  pcall(function()
-    while task.wait() do
-    for i,v in pairs(game:GetService("Players").LocalPlayer.Backpack:GetChildren()) do
-    if v:IsA("Tool") then
-    if v:FindFirstChild("RemoteFunctionShoot") then
-    CurrentEquipGun = v.Name
-    end
-    end
-    end
-    end
-    end)
-  end)
 -- [Body Gyro]
    spawn(function()
 			while task.wait() do
@@ -4503,7 +4445,20 @@ end
 --------------------------------------------------------------------------------------------------------------------------------------------
 --Setting
 local SettingFarm = Tabs.Setting:AddSection("Farming")
-
+local InputTween = Tabs.Setting:AddInput("InputTween", {
+    Title = "Tween Speed",
+    Description = "",
+    Default = 340,
+    Placeholder = "Input",
+    Numeric = true,
+    Finished = true,
+    Callback = function(Value)
+       getgenv().TweenSpeed = Value
+    end
+})
+InputTween:OnChanged(function(Value)
+    getgenv().TweenSpeed = Value
+end)
 local ToggleFast = Tabs.Setting:AddToggle("ToggleFast", {Title = "Enabled Far Attack",Description = "Đánh Xa", Default = false })
 ToggleFast:OnChanged(function(Value)
     getgenv().FastNe = Value
@@ -4534,7 +4489,6 @@ spawn(function()
         end
     end)
 end)
-
 local ToggleFastLow = Tabs.Setting:AddToggle("ToggleFastLow", {Title = "Enabled Fast Attack (for low mobile & pc)",Description = "Đánh nhanh cho máy yếu", Default = false })
 ToggleFastLow:OnChanged(function(Value)
     getgenv().FastNelow = Value
@@ -4619,7 +4573,6 @@ FastAttack = function()
         end)
     end
 end
-
 bs = tick()
 task.spawn(function()
     while task.wait(getgenv().DelayFastLow) do
@@ -4709,44 +4662,87 @@ task.spawn(function()
     end
 end)
 
-    local ToggleBringMob = Tabs.Setting:AddToggle("ToggleBringMob", {Title = "Enabled Bring Mobs",Description = "Gom Quái", Default = true })
-    ToggleBringMob:OnChanged(function(Value)
-        getgenv().BringMob = Value
-    end)
-    Options.ToggleBringMob:SetValue(true)
-    spawn(function()
-        while task.wait() do
-            pcall(function()
-                if getgenv().BringMob and bringmob then
-                    for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
-                        if v.Name == MonFarm and (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 290 then
-                            v.HumanoidRootPart.CFrame = FarmPos
-                            v.HumanoidRootPart.Size = Vector3.new(1,1,1)                                               
-                            v.HumanoidRootPart.CanCollide = false
-                            v.Head.CanCollide = false
-                            v.Humanoid.JumpPower = 0
+local ToggleBringMob = Tabs.Setting:AddToggle("ToggleBringMob", {Title = "Enabled Bring Mobs",Description = "Gom Quái", Default = true })
+ToggleBringMob:OnChanged(function(Value)
+    getgenv().BringMob = Value
+end)
+Options.ToggleBringMob:SetValue(true)
+spawn(function()
+    while task.wait() do
+        pcall(function()
+            if getgenv().BringMob and bringmob then
+                for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
+                    if v.Name == MonFarm and (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 310 then
+                        v.HumanoidRootPart.CFrame = FarmPos
+                        v.Humanoid:ChangeState(11)
+                        v.Humanoid:ChangeState(14)
+                        v.HumanoidRootPart.Size = Vector3.new(1, 1, 1)
+                        v.HumanoidRootPart.Transparency = 1
+                        for al, f in pairs(v:GetChildren()) do
+                            if v:IsA("BasePart") then
+                                v.Velocity = Vector3.new(0, 0, 0)
+                                v.CanCollide = 0
+                                v.Anchored = true
+                            end
+                        end                                            
+                        v.HumanoidRootPart.CanCollide = false
+                        v.Head.CanCollide = false
+                        if v:FindFirstChild("Humanoid") then
                             v.Humanoid.WalkSpeed = 0
-                            v.Humanoid:ChangeState(14)
-                            sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius",  math.huge)
+                            v.Humanoid.JumpPower = 0
+                        else
+                            return
                         end
+                        v.Humanoid:ChangeState(11)
+                        v.Humanoid:ChangeState(14)
                     end
+                    sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius",  math.huge)
                 end
-            end)
-        end
-    end)
-    local ToggleBypassTP = Tabs.Setting:AddToggle("ToggleBypassTP", {Title = "Enabled Bypass Tp",Description = "Di Chuyển Dạng Reset", Default = false })
-    ToggleBypassTP:OnChanged(function(Value)
-        getgenv().BypassTp = Value
-    end)
-    Options.ToggleBypassTP:SetValue(false)
+            end
+        end)
+    end
+end)
 
+local ToggleBypassTP = Tabs.Setting:AddToggle("ToggleBypassTP", {Title = "Enabled Bypass Tp",Description = "Di Chuyển Dạng Reset", Default = false })
+ToggleBypassTP:OnChanged(function(Value)
+    getgenv().BypassTp = Value
+end)
+Options.ToggleBypassTP:SetValue(false)
 
-local ToggleRemove = Tabs.Setting:AddToggle("ToggleRemove", {Title = " Enabled Remove Damage Texts",Description = "Ẩn Dame Đánh Quái", Default = true })
+local ToggleInvisbleMob = Tabs.Setting:AddToggle("ToggleInvisbleMob", {Title = "Enabled Invisble Mobs (reduce lag)",Description = "Ẩn Quái (giảm lag)", Default = false })
+ToggleInvisbleMob:OnChanged(function(Value)
+    getgenv().InvisbleMob = Value
+end)
+while getgenv().InvisbleMob do wait()
+    pcall(function()
+    for i,v in pairs(game:GetService("Workspace").Enemies:GetDescendants()) do
+if v.ClassName == "MeshPart" then
+v.Transparency = 1
+end
+end
+for i,v in pairs(game:GetService("Workspace").Enemies:GetDescendants()) do
+if v.Name == "Head" then
+v.Transparency = 1
+end
+end
+for i,v in pairs(game:GetService("Workspace").Enemies:GetDescendants()) do
+    if v.ClassName == "Accessory" then
+        v.Handle.Transparency = 1
+    end
+end
+for i,v in pairs(game:GetService("Workspace").Enemies:GetDescendants()) do
+    if v.ClassName == "Decal" then
+    v.Transparency = 1
+    end
+end
+end)
+end
+Options.ToggleInvisbleMob:SetValue(false)
+local ToggleRemove = Tabs.Setting:AddToggle("ToggleRemove", {Title = " Enabled Remove Damage Texts (reduce lag)",Description = "Ẩn Dame Đánh Quái (giảm lag)", Default = true })
 ToggleRemove:OnChanged(function(Value)
     getgenv().RemoveDameText = Value
     end)
     Options.ToggleRemove:SetValue(true)
-
     spawn(function()
         while wait() do
             if getgenv().RemoveDameText then
@@ -4761,7 +4757,6 @@ ToggleRemoveNotify:OnChanged(function(Value)
     getgenv().RemoveNotify = Value
     end)
     Options.ToggleRemoveNotify:SetValue(false)
-
     spawn(function()
         while wait() do
             if getgenv().RemoveNotify then
@@ -4771,7 +4766,6 @@ ToggleRemoveNotify:OnChanged(function(Value)
             end
         end
     end)
-
     local ToggleWhite = Tabs.Setting:AddToggle("ToggleWhite", {Title = " Enabled White Screen",Description = "Màn hình Treo", Default = false })
     ToggleWhite:OnChanged(function(Value)
        getgenv().WhiteScreen = Value
