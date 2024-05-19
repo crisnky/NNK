@@ -1928,7 +1928,7 @@ function EquipTool(ToolSe)
    spawn(function()
 			while task.wait() do
 				pcall(function()
-					if getgenv().TeleportIsland or getgenv().AutoSeaEvents or getgenv().AutoEvoRace or getgenv().CastleRaid or getgenv().CollectAzure or getgenv().TweenToKitsune or getgenv().AutoCandy or getgenv().GhostShip or getgenv().Ship or getgenv().SailBoat or getgenv().Auto_Holy_Torch or getgenv().FindMirageIsland or getgenv().TeleportPly or getgenv().Tweenfruit or getgenv().AutoFishCrew or getgenv().AutoShark or getgenv().AutoCakeV2 or getgenv().AutoMysticIsland or getgenv().AutoQuestRace or getgenv().AutoBuyBoat or getgenv().dao or getgenv().AutoMirage or getgenv().AutoFarmAcient or getgenv().AutoQuestRace or getgenv().Auto_Law or getgenv().AutoAllBoss or AutoTushita or getgenv().AutoHolyTorch or getgenv().AutoTerrorshark or getgenv().farmpiranya or getgenv().DriveMytic or getgenv().AutoCakeV2V2 or PirateShip or getgenv().AutoSeaBeast or getgenv().AutoNear or getgenv().BossRaid or getgenv().GrabChest or AutoCitizen or getgenv().Ectoplasm or AutoEvoRace or AutoBartilo or AutoFactory or BringChestz or BringFruitz or getgenv().AutoLevel or getgenv().Clip2 or AutoFarmNoQuest or getgenv().AutoBone or AutoFarmSelectMonsterQuest or AutoFarmSelectMonsterNoQuest or getgenv().AutoBoss or AutoFarmBossQuest or AutoFarmMasGun or AutoFarmMasDevilFruit or AutoFarmSelectArea or AutoSecondSea or AutoThirdSea or AutoDeathStep or AutoSuperhuman or AutoSharkman or AutoElectricClaw or AutoDragonTalon or AutoGodhuman or AutoRengoku or AutoBuddySword or AutoPole or getgenv().AutoHallowSycthe or AutoCavander or AutoTushita or AutoDarkDagger or getgenv().CakePrince or getgenv().AutoElite or AutoRainbowHaki or AutoSaber or AutoFarmKen or AutoKenHop or AutoKenV2 or getgenv().AutoKillPlayerMelee or getgenv().AutoKillPlayerGun or getgenv().AutoKillPlayerFruit or AutoDungeon or getgenv().AutoNextIsland or AutoAdvanceDungeon or Musketeer or RipIndra or Auto_Serpent_Bow or AutoTorch or AutoSoulGuitar or Auto_Cursed_Dual_Katana or getgenv().AutoMaterial or Auto_Quest_Yama_1 or Auto_Quest_Yama_2 or Auto_Quest_Yama_3 or Auto_Quest_Tushita_1 or Auto_Quest_Tushita_2 or Auto_Quest_Tushita_3 or getgenv().Factory or getgenv().SwanGlasses or AutoBartilo or AutoEvoRace or getgenv().Ectoplasm then
+					if getgenv().TeleportIsland or getgenv().AutoSeaEvents or getgenv().AutoEvoRace or getgenv().CastleRaid or getgenv().CollectAzure or getgenv().TweenToKitsune or getgenv().AutoCandy or getgenv().GhostShip or getgenv().Ship or getgenv().SailBoat or getgenv().Auto_Holy_Torch or getgenv().FindMirageIsland or getgenv().TeleportPly or getgenv().Tweenfruit or getgenv().AutoFishCrew or getgenv().AutoShark or getgenv().AutoCakeV2 or getgenv().AutoMysticIsland or getgenv().AutoQuestRace or getgenv().AutoBuyBoat or getgenv().dao or getgenv().AutoMirage or getgenv().AutoFarmAcient or getgenv().AutoQuestRace or getgenv().Auto_Law or getgenv().AutoAllBoss or AutoTushita or getgenv().AutoHolyTorch or getgenv().AutoTerrorshark or getgenv().farmpiranya or getgenv().DriveMytic or getgenv().AutoCakeV2V2 or PirateShip or getgenv().AutoSeaBeast or getgenv().AutoNear or getgenv().BossRaid or getgenv().GrabChest or AutoCitizen or getgenv().Ectoplasm or AutoEvoRace or AutoBartilo or AutoFactory or BringChestz or BringFruitz or getgenv().AutoLevel or getgenv().Clip2 or AutoFarmNoQuest or getgenv().AutoBone or AutoFarmSelectMonsterQuest or AutoFarmSelectMonsterNoQuest or getgenv().AutoBoss or AutoFarmBossQuest or AutoFarmMasGun or getgenv().AutoMasFruit or AutoFarmSelectArea or AutoSecondSea or AutoThirdSea or AutoDeathStep or AutoSuperhuman or AutoSharkman or AutoElectricClaw or AutoDragonTalon or AutoGodhuman or AutoRengoku or AutoBuddySword or AutoPole or getgenv().AutoHallowSycthe or AutoCavander or AutoTushita or AutoDarkDagger or getgenv().CakePrince or getgenv().AutoElite or AutoRainbowHaki or AutoSaber or AutoFarmKen or AutoKenHop or AutoKenV2 or getgenv().AutoKillPlayerMelee or getgenv().AutoKillPlayerGun or getgenv().AutoKillPlayerFruit or AutoDungeon or getgenv().AutoNextIsland or AutoAdvanceDungeon or Musketeer or RipIndra or Auto_Serpent_Bow or AutoTorch or AutoSoulGuitar or Auto_Cursed_Dual_Katana or getgenv().AutoMaterial or Auto_Quest_Yama_1 or Auto_Quest_Yama_2 or Auto_Quest_Yama_3 or Auto_Quest_Tushita_1 or Auto_Quest_Tushita_2 or Auto_Quest_Tushita_3 or getgenv().Factory or getgenv().SwanGlasses or AutoBartilo or AutoEvoRace or getgenv().Ectoplasm then
 						if not game:GetService("Players").LocalPlayer.Character.HumanoidRootPart:FindFirstChild("BodyClip") then
 							local Noclip = Instance.new("BodyVelocity")
 							Noclip.Name = "BodyClip"
@@ -1946,7 +1946,7 @@ function EquipTool(ToolSe)
 spawn(function()
   pcall(function()
     game:GetService("RunService").Stepped:Connect(function()
-      if getgenv().TeleportIsland or getgenv().AutoSeaEvents or getgenv().AutoEvoRace or getgenv().CastleRaid or AutoFarmChest or getgenv().CollectAzure or getgenv().TweenToKitsune or getgenv().AutoCandy or getgenv().GhostShip or getgenv().Ship or getgenv().SailBoat or getgenv().Auto_Holy_Torch or getgenv().Tweenfruit or getgenv().FindMirageIsland or getgenv().TeleportPly or getgenv().AutoFishCrew or getgenv().AutoShark or getgenv().AutoMysticIsland or getgenv().AutoCakeV2 or getgenv().AutoQuestRace or getgenv().AutoBuyBoat or getgenv().dao or getgenv().AutoFarmAcient or getgenv().AutoMirage or getgenv().Auto_Law or getgenv().AutoQuestRace or getgenv().AutoAllBoss or getgenv().AutoHolyTorch or AutoTushita or getgenv().farmpiranya or getgenv().AutoTerrorshark or getgenv().AutoNear or getgenv().AutoCakeV2V2 or PirateShip or getgenv().AutoSeaBeast or getgenv().DriveMytic or getgenv().BossRaid or getgenv().GrabChest or AutoCitizen or getgenv().Ectoplasm or AutoEvoRace or AutoBartilo or AutoFactory or BringChestz or BringFruitz or getgenv().AutoLevel or getgenv().Clip2 or AutoFarmNoQuest or getgenv().AutoBone or AutoFarmSelectMonsterQuest or AutoFarmSelectMonsterNoQuest or getgenv().AutoBoss or AutoFarmBossQuest or AutoFarmMasGun or AutoFarmMasDevilFruit or AutoFarmSelectArea or AutoSecondSea or AutoThirdSea or AutoDeathStep or AutoSuperhuman or AutoSharkman or AutoElectricClaw or AutoDragonTalon or AutoGodhuman or AutoRengoku or AutoBuddySword or AutoPole or getgenv().AutoHallowSycthe or AutoCavander or AutoTushita or AutoDarkDagger or getgenv().CakePrince or getgenv().AutoElite or AutoRainbowHaki or AutoSaber or AutoFarmKen or AutoKenHop or AutoKenV2 or getgenv().AutoKillPlayerMelee or getgenv().AutoKillPlayerGun or getgenv().AutoKillPlayerFruit or AutoDungeon or getgenv().AutoNextIsland or AutoAdvanceDungeon or Musketeer or RipIndra or Auto_Serpent_Bow or AutoTorch or AutoSoulGuitar or Auto_Cursed_Dual_Katana or getgenv().AutoMaterial or Auto_Quest_Yama_1 or Auto_Quest_Yama_2 or Auto_Quest_Yama_3 or Auto_Quest_Tushita_1 or Auto_Quest_Tushita_2 or Auto_Quest_Tushita_3 or getgenv().Factory or getgenv().SwanGlasses or getgenv().Ectoplasm then
+      if getgenv().TeleportIsland or getgenv().AutoSeaEvents or getgenv().AutoEvoRace or getgenv().CastleRaid or AutoFarmChest or getgenv().CollectAzure or getgenv().TweenToKitsune or getgenv().AutoCandy or getgenv().GhostShip or getgenv().Ship or getgenv().SailBoat or getgenv().Auto_Holy_Torch or getgenv().Tweenfruit or getgenv().FindMirageIsland or getgenv().TeleportPly or getgenv().AutoFishCrew or getgenv().AutoShark or getgenv().AutoMysticIsland or getgenv().AutoCakeV2 or getgenv().AutoQuestRace or getgenv().AutoBuyBoat or getgenv().dao or getgenv().AutoFarmAcient or getgenv().AutoMirage or getgenv().Auto_Law or getgenv().AutoQuestRace or getgenv().AutoAllBoss or getgenv().AutoHolyTorch or AutoTushita or getgenv().farmpiranya or getgenv().AutoTerrorshark or getgenv().AutoNear or getgenv().AutoCakeV2V2 or PirateShip or getgenv().AutoSeaBeast or getgenv().DriveMytic or getgenv().BossRaid or getgenv().GrabChest or AutoCitizen or getgenv().Ectoplasm or AutoEvoRace or AutoBartilo or AutoFactory or BringChestz or BringFruitz or getgenv().AutoLevel or getgenv().Clip2 or AutoFarmNoQuest or getgenv().AutoBone or AutoFarmSelectMonsterQuest or AutoFarmSelectMonsterNoQuest or getgenv().AutoBoss or AutoFarmBossQuest or AutoFarmMasGun or getgenv().AutoMasFruit or AutoFarmSelectArea or AutoSecondSea or AutoThirdSea or AutoDeathStep or AutoSuperhuman or AutoSharkman or AutoElectricClaw or AutoDragonTalon or AutoGodhuman or AutoRengoku or AutoBuddySword or AutoPole or getgenv().AutoHallowSycthe or AutoCavander or AutoTushita or AutoDarkDagger or getgenv().CakePrince or getgenv().AutoElite or AutoRainbowHaki or AutoSaber or AutoFarmKen or AutoKenHop or AutoKenV2 or getgenv().AutoKillPlayerMelee or getgenv().AutoKillPlayerGun or getgenv().AutoKillPlayerFruit or AutoDungeon or getgenv().AutoNextIsland or AutoAdvanceDungeon or Musketeer or RipIndra or Auto_Serpent_Bow or AutoTorch or AutoSoulGuitar or Auto_Cursed_Dual_Katana or getgenv().AutoMaterial or Auto_Quest_Yama_1 or Auto_Quest_Yama_2 or Auto_Quest_Yama_3 or Auto_Quest_Tushita_1 or Auto_Quest_Tushita_2 or Auto_Quest_Tushita_3 or getgenv().Factory or getgenv().SwanGlasses or getgenv().Ectoplasm then
       for i,v in pairs(game:GetService("Players").LocalPlayer.Character:GetDescendants()) do
       if v:IsA("BasePart") then
       v.CanCollide = false
@@ -2521,19 +2521,9 @@ local Mastery = Tabs.Main:AddSection("Mastery Farm")
     DropdownMastery:SetValue("Level")
 
     DropdownMastery:OnChanged(function(Value)
-        TypeMastery = Value
+        getgenv().TypeMastery = Value
     end)
-
-    local ToggleMasteryFruit = Tabs.Main:AddToggle("ToggleMasteryFruit", {
-        Title = "Auto BF Mastery",
-        Description = "Cày Thông Thạo Trái", 
-        Default = false })
-    ToggleMasteryFruit:OnChanged(function(Value)
-        AutoFarmMasDevilFruit = Value
-    end)
-    Options.ToggleMasteryFruit:SetValue(false)
-
-   local ListHealth = {'20','25','30','35','40','45','50'}
+    local ListHealth = {'20','25','30','35','40','45','50'}
     local DropdownSelectHealth = Tabs.Main:AddDropdown("DropdownSelectHealth", {
         Title = "(%) Health Mob",
         Values = ListHealth,
@@ -2543,7 +2533,16 @@ local Mastery = Tabs.Main:AddSection("Mastery Farm")
     DropdownSelectHealth:SetValue("25")
     DropdownSelectHealth:OnChanged(function(Value)
       getgenv().HealthMob = Value
-    end)   
+    end)
+
+    local ToggleMasteryFruit = Tabs.Main:AddToggle("ToggleMasteryFruit", {
+        Title = "Auto BF Mastery",
+        Description = "Cày Thông Thạo Trái", 
+        Default = false })
+    ToggleMasteryFruit:OnChanged(function(Value)
+        getgenv().AutoMasFruit = Value
+    end)
+    Options.ToggleMasteryFruit:SetValue(false)   
 spawn(function()
 while task.wait(1) do
 if getgenv().UseSkill then
@@ -2584,7 +2583,7 @@ pcall(function()
   game:GetService("VirtualInputManager"):SendKeyEvent(false, "F", false, game)
   end
   end
-  until not AutoFarmMasDevilFruit or not getgenv().UseSkill or v.Humanoid.Health == 0
+  until not getgenv().AutoMasFruit or not getgenv().UseSkill or v.Humanoid.Health == 0
   end
   end
   end
@@ -2594,7 +2593,7 @@ end
 end)
 spawn(function()
     while task.wait(.1) do
-    if AutoFarmMasDevilFruit and TypeMastery == 'Level' then
+    if getgenv().AutoMasFruit and getgenv().TypeMastery == 'Level' then
     pcall(function()
       CheckLevel(SelectMonster)
       if not string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameMon) or game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false then
@@ -2617,35 +2616,33 @@ spawn(function()
       if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") then
       if v.Name == Ms then
         repeat wait(getgenv().Fast_Delay)
-      if v.Humanoid.Health <= v.Humanoid.MaxHealth * getgenv().HealthMob / 100 then
-      getgenv().UseSkill = true
-      else
-    getgenv().UseSkill = false
-	   AutoHaki()
-       bringmob = true
-      EquipTool(SelectWeapon)
-      Tween(v.HumanoidRootPart.CFrame * CFrame.new(posX,posY,posZ))
-      v.HumanoidRootPart.Size = Vector3.new(60, 60, 60)
-      v.HumanoidRootPart.Transparency = 1
-      v.Humanoid.JumpPower = 0
-      v.Humanoid.WalkSpeed = 0
-      v.HumanoidRootPart.CanCollide = false
-      FarmPos = v.HumanoidRootPart.CFrame
-      MonFarm = v.Name
-      
-      NormalAttack()
-      end
-      until not AutoFarmMasDevilFruit or not v.Parent or v.Humanoid.Health == 0 or game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false or not game:GetService("Workspace").Enemies:FindFirstChild(v.Name) or not TypeMastery == 'Level'
-      bringmob = false
-      getgenv().UseSkill = false
-      
-      end
-      end
-      end
-      end
-      end)
+        if v.Humanoid.Health <= v.Humanoid.MaxHealth * getgenv().HealthMob / 100 then
+        getgenv().UseSkill = true
+        else
+        getgenv().UseSkill = false
+	    AutoHaki()
+        bringmob = true
+        EquipTool(SelectWeapon)
+        Tween(v.HumanoidRootPart.CFrame * CFrame.new(posX,posY,posZ))
+        v.HumanoidRootPart.Size = Vector3.new(60, 60, 60)
+        v.HumanoidRootPart.Transparency = 1
+        v.Humanoid.JumpPower = 0
+        v.Humanoid.WalkSpeed = 0
+        v.HumanoidRootPart.CanCollide = false
+        FarmPos = v.HumanoidRootPart.CFrame
+        MonFarm = v.Name
+        NormalAttack()
+        end
+        until not getgenv().AutoMasFruit or not v.Parent or v.Humanoid.Health == 0 or game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false or not game:GetService("Workspace").Enemies:FindFirstChild(v.Name) or not getgenv().TypeMastery == 'Level'
+        bringmob = false
+        getgenv().UseSkill = false
+        end
+     end
+end
+    end
+        end)
 ---------Near Mas
-    elseif AutoFarmMasDevilFruit and TypeMastery == 'Near Mobs' then
+    elseif getgenv().AutoMasFruit and getgenv().TypeMastery == 'Near Mobs' then
     pcall(function()
       for i,v in pairs (game.Workspace.Enemies:GetChildren()) do
       if v.Name and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") then
@@ -2655,7 +2652,7 @@ spawn(function()
       getgenv().UseSkill = true
       else
         getgenv().UseSkill = false
-		AutoHaki()
+        AutoHaki()
         bringmob = true
       EquipTool(SelectWeapon)
       Tween(v.HumanoidRootPart.CFrame * CFrame.new(posX,posY,posZ))
@@ -2664,17 +2661,13 @@ spawn(function()
       v.Humanoid.JumpPower = 0
       v.Humanoid.WalkSpeed = 0
       v.HumanoidRootPart.CanCollide = false
-  --v.Humanoid:ChangeState(11)
-  --v.Humanoid:ChangeState(14)
       FarmPos = v.HumanoidRootPart.CFrame
       MonFarm = v.Name
-      
        NormalAttack()
       end
-      until not AutoFarmMasDevilFruit or not MasteryType == 'Near Mobs' or not v.Parent or v.Humanoid.Health == 0 or not TypeMastery == 'Near Mobs'
+      until not getgenv().AutoMasFruit or not MasteryType == 'Near Mobs' or not v.Parent or v.Humanoid.Health == 0 or not getgenv().TypeMastery == 'Near Mobs'
       bringmob = false
       getgenv().UseSkill = false
-      
     end
 end
 end
@@ -2682,7 +2675,6 @@ end)
 end
 end
 end)
-
 if Third_Sea then
 local MiscFarm = Tabs.Main:AddSection("Bone Farm")
 
@@ -2691,12 +2683,14 @@ local StatusBone = Tabs.Main:AddParagraph({
     Content = ""
 })
 	spawn(function()
-		pcall(function()
-			while wait() do
-				StatusBone:SetDesc("You Have : "..tostring(game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Bones","Check").." Bones"))
-			end
-		end)
-	end)
+        while wait() do
+            if game:GetService("Players").LocalPlayer.Data.Level.Value >= 1500 then
+                StatusBone:SetDesc("You Have : "..game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Bones","Check").." Bones")
+            else
+                StatusBone:SetDesc("Bones : Error!")
+            end
+        end
+    end)
 local ToggleBone = Tabs.Main:AddToggle("ToggleBone", {
     Title = "Auto Farm Bones",
     Description = "Cày Xương", 
@@ -3002,8 +2996,6 @@ end
 end
 
 local boss = Tabs.Main:AddSection("Boss Farm")
-
-
     if First_Sea then
 		tableBoss = {"The Gorilla King","Bobby","Yeti","Mob Leader","Vice Admiral","Warden","Chief Warden","Swan","Magma Admiral","Fishman Lord","Wysper","Thunder God","Cyborg","Saber Expert"}
 	elseif Second_Sea then
@@ -3011,29 +3003,38 @@ local boss = Tabs.Main:AddSection("Boss Farm")
 	elseif Third_Sea then
 		tableBoss = {"Stone","Island Empress","Kilo Admiral","Captain Elephant","Beautiful Pirate","rip_indra True Form","Longma","Soul Reaper","Cake Queen"}
 	end
-
-
+    local StatusBoss = Tabs.Main:AddParagraph({
+        Title = "Status Boss",
+        Content = ""
+    })
+	spawn(function()
+		while wait() do
+			pcall(function()
+				if game:GetService("ReplicatedStorage"):FindFirstChild(getgenv().SelectBoss) or game:GetService("Workspace").Enemies:FindFirstChild(getgenv().SelectBoss) then
+					StatusBoss:SetDesc("Boss: 🟢")	
+				else
+					StatusBoss:SetDesc("Boss: 🔴")	
+				end
+			end)
+		end
+	end)   
     local DropdownBoss = Tabs.Main:AddDropdown("DropdownBoss", {
         Title = "Select Boss",
         Values = tableBoss,
         Multi = false,
         Default = 1,
     })
-
     DropdownBoss:SetValue("")
     DropdownBoss:OnChanged(function(Value)
 		getgenv().SelectBoss = Value
     end)
-
 	local ToggleAutoFarmBoss = Tabs.Main:AddToggle("ToggleAutoFarmBoss", {
         Title = "Kill Boss",
         Description = "Đánh Boss", 
         Default = false })
-
     ToggleAutoFarmBoss:OnChanged(function(Value)
 		getgenv().AutoBoss = Value
     end)
-
     Options.ToggleAutoFarmBoss:SetValue(false)
 
     spawn(function()
@@ -5435,7 +5436,7 @@ local DropdownFruit = Tabs.Fruit:AddDropdown("DropdownFruit", {
     Multi = false,
     Default = 1,
 })
-DropdownFruit:SetValue("Kitsune-Kitsune")
+DropdownFruit:SetValue("...")
 DropdownFruit:OnChanged(function(Value)
     getgenv().SelectFruit = Value
 end)
@@ -5707,7 +5708,7 @@ local DropdownRaid = Tabs.Raid:AddDropdown("DropdownRaid", {
     Multi = false,
     Default = 1,
 })
-DropdownRaid:SetValue("Dough")
+DropdownRaid:SetValue("...")
 DropdownRaid:OnChanged(function(Value)
     getgenv().SelectChip = Value
 end)
