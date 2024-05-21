@@ -43,8 +43,8 @@ end
 local Window = Fluent:CreateWindow({
     Title = "Fai Fao Hub",
     SubTitle = "[ Blox Fruits ]",
-    TabWidth = 155,
-    Size = UDim2.fromOffset(500, 320),
+    TabWidth = 160,
+    Size = UDim2.fromOffset(540, 450),
     Acrylic = true,
     Theme = "Dark",
     MinimizeKey = Enum.KeyCode.LeftControl
@@ -66,9 +66,6 @@ local Options = Fluent.Options
 do
 ----------------------------------------------------------------------------------------------------------------------------------------------
 --// Sea World
-First_Sea = false
-Second_Sea = false
-Third_Sea = false
 local placeId = game.PlaceId
 if placeId == 2753915549 then
 First_Sea = true
@@ -79,7 +76,7 @@ Third_Sea = true
 else
 game.Players.LocalPlayer:Kick("Support only Blox Fruits")
 end
---// Check Quest
+--// CheckQuest
 function CheckLevel()
 local Lv = game:GetService("Players").LocalPlayer.Data.Level.Value
 if First_Sea then
@@ -1890,9 +1887,9 @@ end
     end
     end
 --SelectTool
-function EquipTool(ToolSe)
-		if game.Players.LocalPlayer.Backpack:FindFirstChild(ToolSe) then
-			local tool = game.Players.LocalPlayer.Backpack:FindFirstChild(ToolSe)
+function EquipTool(ToolSeo)
+		if game.Players.LocalPlayer.Backpack:FindFirstChild(ToolSeo) then
+			local tool = game.Players.LocalPlayer.Backpack:FindFirstChild(ToolSeo)
 			wait(0.5)
 			game.Players.LocalPlayer.Character.Humanoid:EquipTool(tool)
 		end
@@ -2525,7 +2522,7 @@ local Mastery = Tabs.Main:AddSection("Mastery Farm")
     end)
     local ListHealth = {'20','25','30','35','40','45','50'}
     local DropdownSelectHealth = Tabs.Main:AddDropdown("DropdownSelectHealth", {
-        Title = "(%) Health Mob",
+        Title = "Select (%) Health Mobs",
         Values = ListHealth,
         Multi = false,
         Default = 1,
@@ -2544,9 +2541,9 @@ local Mastery = Tabs.Main:AddSection("Mastery Farm")
     end)
     Options.ToggleMasteryFruit:SetValue(false)   
 spawn(function()
-while task.wait(1) do
-if getgenv().UseSkill then
-pcall(function()
+    while task.wait(1) do
+        if getgenv().UseSkill then
+    pcall(function()
   if getgenv().UseSkill then
   for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
   if v.Name == MonFarm and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health <= v.Humanoid.MaxHealth * getgenv().HealthMob / 100 then
@@ -2559,7 +2556,7 @@ pcall(function()
   local DevilFruitMastery = game:GetService("Players").LocalPlayer.Character:FindFirstChild(game.Players.LocalPlayer.Data.DevilFruit.Value).Level.Value
   if getgenv().Z and DevilFruitMastery >= 1 then
   game:service('VirtualInputManager'):SendKeyEvent(true, "Z", false, game)
-  wait(0.1)
+  wait(0.2)
   game:service('VirtualInputManager'):SendKeyEvent(false, "Z", false, game)
   end
   if getgenv().X and DevilFruitMastery >= 2 then
@@ -2569,17 +2566,17 @@ pcall(function()
   end
   if getgenv().C and DevilFruitMastery >= 3 then
   game:service('VirtualInputManager'):SendKeyEvent(true, "C", false, game)
-  wait(0.3)
-  game:service('VirtualInputManager'):SendKeyEvent(false, "C", false, game)
+  wait(0.2)
+  game:sevice('VirtualInputManager'):SendKeyEvent(false, "C", false, game)
   end
   if getgenv().V and DevilFruitMastery >= 4 then
   game:service('VirtualInputManager'):SendKeyEvent(true, "V", false, game)
-  wait(0.4)
+  wait(0.2)
   game:service('VirtualInputManager'):SendKeyEvent(false, "V", false, game)
   end
   if getgenv().F and DevilFruitMastery >= 5 then
   game:GetService("VirtualInputManager"):SendKeyEvent(true, "F", false, game)
-  wait(0.5)
+  wait(0.2)
   game:GetService("VirtualInputManager"):SendKeyEvent(false, "F", false, game)
   end
   end
@@ -2598,16 +2595,7 @@ spawn(function()
       CheckLevel(SelectMonster)
       if not string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameMon) or game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false then
       game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
-      if getgenv().BypassTp then
-        if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - CFrameQ.Position).Magnitude > 2500 then
-        to(CFrameQ)
-        wait(0.2)
-        elseif (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - CFrameQ.Position).Magnitude < 2500 then
-        Tween(CFrameQ)
-        end
-        else
-          Tween(CFrameQ)
-        end
+      toTarget(CFrameQ)
       if (CFrameQ.Position - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 5 then
       game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest",NameQuest,QuestLv)
       end
@@ -3649,7 +3637,7 @@ spawn(function()
         if getgenv().SpamSkillMob then
             AutoHaki()
             sword = checkskillSword()
-            meele = checkskillMelee()
+            melee = checkskillMelee()
             df = checkskillDF()
             gun = checkskillGun()
             if df and SpamDFs and not string.find(game:GetService("Players").LocalPlayer.Data.DevilFruit.Value, "Portal") and df ~= "F" then
@@ -3686,6 +3674,13 @@ spawn(function()
         end
     end
 end)
+if Second_Sea then
+    CFrameBoat = CFrame.new(-13.488054275512695, 10.311711311340332, 2927.69287109375)
+    Vector3Boat = Vector3.new(-13.488054275512695, 10.311711311340332, 2927.69287109375)
+elseif Third_Sea then
+    CFrameBoat = CFrame.new(-16207.501953125, 9.0863618850708, 475.1490783691406)
+    Vector3Boat = Vector3.new(-16207.501953125, 9.0863618850708, 475.1490783691406)
+end
 spawn(function()
     while task.wait() do
         if getgenv().AutoSeaEvents then
