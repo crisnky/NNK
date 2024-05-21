@@ -3089,7 +3089,7 @@ local boss = Tabs.Main:AddSection("Boss Farm")
         Default = 1,
     })
 
-    DropdownMaterial:SetValue("Dragon Scale")
+    DropdownMaterial:SetValue("...")
 
     DropdownMaterial:OnChanged(function(Value)
         SelectMaterial = Value
