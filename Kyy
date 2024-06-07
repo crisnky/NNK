@@ -5811,8 +5811,7 @@ spawn(function()
             pcall(function()
                 for i,v in pairs(game.Workspace.Enemies:GetDescendants()) do
                     if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
-                         repeat wait(getgenv().Fast_Delay)
-                AttackNoCoolDown()
+                         repeat wait()
                             sethiddenproperty(game:GetService('Players').LocalPlayer,"SimulationRadius",math.huge)
                             v.Humanoid.Health = 0
                             v.HumanoidRootPart.CanCollide = false
