@@ -3973,10 +3973,8 @@ end)
            end
        end)
     end
-
 if Third_Sea then
     local AutoMysticIsland = Tabs.Main:AddSection("Mirage Island")
-
     local StatusMirage = Tabs.Main:AddParagraph({
         Title = "Mirage Status",
         Content = "Status:"
@@ -4000,7 +3998,6 @@ if Third_Sea then
     end)
     end
     end)
-    
     task.spawn(function()
         while task.wait() do
             pcall(function()
@@ -4019,7 +4016,6 @@ if Third_Sea then
             end
         end)
     end)
-
     Tabs.Main:AddButton({
         Title = "Tween to Mirage Island",
         Description = "Bay Đến Đảo Bí Ẩn",
@@ -4043,7 +4039,6 @@ if Third_Sea then
             end
         end
     end
-
     Tabs.Main:AddButton({
         Title = "Tween to Highest Point",
         Description = "Bay đến Chỗ Cao Nhất",
@@ -6842,6 +6837,7 @@ spawn(function()
 end)
 end
 --------------------------------------------------------------------------------------------------------------------------------------------
+--Addon
 SaveManager:SetLibrary(Fluent)
 InterfaceManager:SetLibrary(Fluent)
 SaveManager:IgnoreThemeSettings()
@@ -6851,4 +6847,3 @@ SaveManager:SetFolder("Fai Fao Hub/specific-game")
 InterfaceManager:BuildInterfaceSection(Tabs.Setting)
 SaveManager:BuildConfigSection(Tabs.Setting)
 SaveManager:LoadAutoloadConfig()
-----------------------------------------------------------------------------------------------------------------------------------------------
