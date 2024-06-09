@@ -3737,9 +3737,9 @@ spawn(function()
                                 Tween(v.Engine.CFrame * CFrame.new(0, -20, 0))
                                 getgenv().SpamSkillMob = true
                                 getgenv().NoClip = true
-                                getgenv().psskill = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0, -5, 0)
+                                getgenv().SoloKill = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0, -5, 0)
                             until not v or not v.Parent or v.Health.Value <= 0 or not CheckPirateBoat() or not getgenv().AutoSeaEvents
-                            getgenv().psskill = nil
+                            getgenv().SoloKill = nil
                             getgenv().SpamSkillMob = false
                             getgenv().NoClip = false
                         end
@@ -3764,9 +3764,9 @@ spawn(function()
                             end
                         end
                         getgenv().NoClip = true
-                        getgenv().psskill = LP.Character.HumanoidRootPart.CFrame * CFrame.new(0, -5, 0)
+                        getgenv().SoloKill = LP.Character.HumanoidRootPart.CFrame * CFrame.new(0, -5, 0)
                     until not v or not v.Parent or v.Health.Value <= 0 or not CheckSeaBeast() or not getgenv().AutoSeaEvents
-                    getgenv().psskill = nil
+                    getgenv().SoloKill = nil
                     getgenv().SpamSkillMob = false
                     getgenv().NoClip = false
                 elseif Enemies:FindFirstChild("Shark") then
@@ -3866,9 +3866,9 @@ spawn(function()
                                 game:GetService("VirtualUser"):Button1Down(Vector2.new(1280, 672))
                                 getgenv().SpamSkillMob = true
                                 getgenv().NoClip = true
-                                getgenv().psskill = LP.Character.HumanoidRootPart.CFrame * CFrame.new(0, -5, 0)
+                                getgenv().SoloKill = LP.Character.HumanoidRootPart.CFrame * CFrame.new(0, -5, 0)
                             until not v or not v.Parent or v.Health.Value <= 0 or not Enemies:FindFirstChild("FishBoat") or not getgenv().AutoSeaEvents
-                            getgenv().psskill = nil
+                            getgenv().SoloKill = nil
                             getgenv().SpamSkillMob = false
                             getgenv().NoClip = false
                         end
