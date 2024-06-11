@@ -6763,6 +6763,7 @@ function NoFog()
         end
     end
 end
+--
 pcall(function()
     game.Players.LocalPlayer.Character.HumanoidRootPart.Sound:Destroy()
  end)
@@ -6807,7 +6808,24 @@ pcall(function()
    writefile("Radient.txt", HttpService:JSONEncode(userinfo));
  end
 local Music = Tabs.Misc:AddSection("Best Musics =)")
-local ListMusics = {'Test','Nevada','RISE AMPYX Remix'}
+local ListMusics = {
+    'Quốc Ca Việt Nam',
+    'STAY -- Justin Bieber & LAROI',
+    'Free Fire',
+    'Chipi Chipi Speed',
+    'Blod Blod',
+    'Play It Cool -- Terry Zhong',
+    'Gojo','Gambare Senpai',
+    'Din1c-DOWN2KILL',
+    'Waka Waka',
+    'Rickroll',
+    'Preytty Girl -- Maggie Lindemann',
+    'Không Nên Tò Mò',
+    'Phonk #1',
+    'Phonk #2',
+    'Phonk #3',
+    'Phonk #4'
+}
 local DropdownMusic = Tabs.Misc:AddDropdown("DropdownMusic", {
     Title = "Select Musics",
     Values = ListMusics,
@@ -6818,16 +6836,19 @@ DropdownMusic:SetValue("...")
 DropdownMusic:OnChanged(function(v)
     getgenv().SelectMusics = v
 end)
-local TogglePlayMusic = Tabs.Misc:AddToggle("TogglePlayMusic", {Title = "Start Play Music", Default = false })
-TogglePlayMusic:OnChanged(function(v)
-    game.Players.LocalPlayer.Character.HumanoidRootPart.Sound.Playing = v
+local TogglePlayMusic = Tabs.Misc:AddToggle("TogglePlayMusic", {
+Title = "Start Play Music",
+Description = "", 
+Default = false })
+TogglePlayMusic:OnChanged(function(Value)
+    game.Players.LocalPlayer.Character.HumanoidRootPart.Sound.Playing = Value
 end)
 Options.TogglePlayMusic:SetValue(false)
 spawn(function()
     pcall(function()
        while wait() do
-       if getgenv().SelectMusics == "Test" then
-          game.Players.LocalPlayer.Character.HumanoidRootPart.Sound.SoundId = ContentProvider.BaseUrl .. "asset/?id=" .. 6443075967
+       if getgenv().SelectMusics == "Quốc Ca Việt Nam" then
+          game.Players.LocalPlayer.Character.HumanoidRootPart.Sound.SoundId = ContentProvider.BaseUrl .. "asset/?id=" .. 1845922899
        end
        end
     end)
@@ -6835,8 +6856,8 @@ spawn(function()
   spawn(function()
     pcall(function()
        while wait() do
-       if getgenv().SelectMusics == "RISE AMPYX Remix" then
-          game.Players.LocalPlayer.Character.HumanoidRootPart.Sound.SoundId = ContentProvider.BaseUrl .. "asset/?id=" .. 17815397455
+       if getgenv().SelectMusics == "Chipi Chipi Speed" then
+          game.Players.LocalPlayer.Character.HumanoidRootPart.Sound.SoundId = ContentProvider.BaseUrl .. "asset/?id=" .. 16190783444
        end
        end
     end)
@@ -6844,8 +6865,134 @@ spawn(function()
   spawn(function()
     pcall(function()
        while wait() do
-       if getgenv().SelectMusics == "Nevada" then
-          game.Players.LocalPlayer.Character.HumanoidRootPart.Sound.SoundId = ContentProvider.BaseUrl .. "asset/?id=" .. 17815466245
+       if getgenv().SelectMusics == "Không Nên Tò Mò" then
+          game.Players.LocalPlayer.Character.HumanoidRootPart.Sound.SoundId = ContentProvider.BaseUrl .. "asset/?id=" .. 7000891754
+       end
+       end
+    end)
+  end)
+  spawn(function()
+    pcall(function()
+       while wait() do
+       if getgenv().SelectMusics == "Blod Blod" then
+          game.Players.LocalPlayer.Character.HumanoidRootPart.Sound.SoundId = ContentProvider.BaseUrl .. "asset/?id=" .. 6783714255
+       end
+       end
+    end)
+  end)
+  spawn(function()
+    pcall(function()
+       while wait() do
+       if getgenv().SelectMusics == "Phonk #4" then
+          game.Players.LocalPlayer.Character.HumanoidRootPart.Sound.SoundId = ContentProvider.BaseUrl .. "asset/?id=" .. 1842652230
+       end
+       end
+    end)
+  end)
+  spawn(function()
+    pcall(function()
+       while wait() do
+       if getgenv().SelectMusics == "Phonk #3" then
+          game.Players.LocalPlayer.Character.HumanoidRootPart.Sound.SoundId = ContentProvider.BaseUrl .. "asset/?id=" .. 13530439660
+       end
+       end
+    end)
+  end)
+  spawn(function()
+    pcall(function()
+       while wait() do
+       if getgenv().SelectMusics == "Free Fire" then
+          game.Players.LocalPlayer.Character.HumanoidRootPart.Sound.SoundId = ContentProvider.BaseUrl .. "asset/?id=" .. 7634196777
+       end
+       end
+    end)
+  end)
+  spawn(function()
+    pcall(function()
+       while wait() do
+       if getgenv().SelectMusics == "Play It Cool -- Terry Zhong" then
+          game.Players.LocalPlayer.Character.HumanoidRootPart.Sound.SoundId = ContentProvider.BaseUrl .. "asset/?id=" .. 7029017448
+       end
+       end
+    end)
+  end)
+spawn(function()
+    pcall(function()
+       while wait() do
+       if getgenv().SelectMusics == "Phonk #2" then
+          game.Players.LocalPlayer.Character.HumanoidRootPart.Sound.SoundId = ContentProvider.BaseUrl .. "asset/?id=" .. 15689451063
+       end
+       end
+    end)
+  end)
+spawn(function()
+    pcall(function()
+       while wait() do
+       if getgenv().SelectMusics == "STAY -- Justin Bieber & LAROI" then
+          game.Players.LocalPlayer.Character.HumanoidRootPart.Sound.SoundId = ContentProvider.BaseUrl .. "asset/?id=" .. 9062549544
+       end
+       end
+    end)
+  end)
+  spawn(function()
+    pcall(function()
+       while wait() do
+       if getgenv().SelectMusics == "Phonk #1" then
+          game.Players.LocalPlayer.Character.HumanoidRootPart.Sound.SoundId = ContentProvider.BaseUrl .. "asset/?id=" .. 15689443663
+       end
+       end
+    end)
+  end)
+  spawn(function()
+    pcall(function()
+       while wait() do
+       if getgenv().SelectMusics == "Gambare Senpai" then
+          game.Players.LocalPlayer.Character.HumanoidRootPart.Sound.SoundId = ContentProvider.BaseUrl .. "asset/?id=" .. 7431081635
+       end
+       end
+    end)
+  end)
+  spawn(function()
+    pcall(function()
+       while wait() do
+       if getgenv().SelectMusics == "Gojo" then
+          game.Players.LocalPlayer.Character.HumanoidRootPart.Sound.SoundId = ContentProvider.BaseUrl .. "asset/?id=" .. 7896694622
+       end
+       end
+    end)
+  end)
+spawn(function()
+    pcall(function()
+       while wait() do
+       if getgenv().SelectMusics == "Din1c-DOWN2KILL" then
+          game.Players.LocalPlayer.Character.HumanoidRootPart.Sound.SoundId = ContentProvider.BaseUrl .. "asset/?id=" .. 16190760285
+       end
+       end
+    end)
+  end)
+spawn(function()
+    pcall(function()
+       while wait() do
+       if getgenv().SelectMusics == "Waka Waka" then
+          game.Players.LocalPlayer.Character.HumanoidRootPart.Sound.SoundId = ContentProvider.BaseUrl .. "asset/?id=" .. 5506713323
+       end
+       end
+    end)
+  end)
+spawn(function()
+    pcall(function()
+       while wait() do
+       if getgenv().SelectMusics == "Rickroll" then
+          game.Players.LocalPlayer.Character.HumanoidRootPart.Sound.SoundId = ContentProvider.BaseUrl .. "asset/?id=" .. 7363412529
+       end
+       end
+    end)
+  end)
+  spawn(function()
+    pcall(function()
+       while wait() do
+       if getgenv().SelectMusics == "Preytty Girl -- Maggie Lindemann" then
+          game.Players.LocalPlayer.Character.HumanoidRootPart.Sound.SoundId = ContentProvider.BaseUrl .. "asset/?id=" .. 6574868925
        end
        end
     end)
