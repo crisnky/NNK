@@ -4087,7 +4087,6 @@ spawn(function()
         end
     end)
     end)
-
     local Togglelockmoon = Tabs.Main:AddToggle("Togglelockmoon", {Title = "Lock Moon and Use Race Skill",Description = "Nhìn Trăng + Bật Tộc", Default = false })
     Togglelockmoon:OnChanged(function(Value)
         getgenv().AutoLockMoon = Value
@@ -4409,7 +4408,7 @@ if Second_Sea then
                             for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
                                 if v.Name == "Zombie" then
                                      repeat wait(getgenv().Fast_Delay)
-                AttackNoCoolDown()
+                                        AttackNoCoolDown()
                                         EquipTool(SelectWeapon)
                                         Tween(v.HumanoidRootPart.CFrame * CFrame.new(posX,posY,posZ))		
                                     until Back:FindFirstChild("Flower 3")
@@ -6764,13 +6763,98 @@ function NoFog()
         end
     end
 end
+pcall(function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.Sound:Destroy()
+ end)
+ local ContentProvider = Game:GetService("ContentProvider")
+ local sound = Instance.new("Sound")
+ sound.Parent = game.Players.LocalPlayer.Character.HumanoidRootPart
+ while (ContentProvider.RequestQueueSize > 0) do
+    wait()
+ end
+    if game.Players.LocalPlayer.Character.Humanoid.Health <= 0 then
+        game.Players.LocalPlayer.Character.HumanoidRootPart.Sound:Destroy()
+        wait(5)
+        local ContentProvider = Game:GetService("ContentProvider")
+        local sound = Instance.new("Sound")
+        sound.Parent = game.Players.LocalPlayer.Character.HumanoidRootPart
+        while (ContentProvider.RequestQueueSize > 0) do
+            wait()
+        end
+    end
+ local RadientPaid = {}
+ local UserInputService = game:GetService("UserInputService")
+ local TweenService = game:GetService("TweenService")
+ local RunService = game:GetService("RunService")
+ local LocalPlayer = game:GetService("Players").LocalPlayer
+ local Mouse = LocalPlayer:GetMouse()
+ local HttpService = game:GetService("HttpService")
+ local pfp
+ local userww
+ local tag
+ local userinfo = {}
+ pcall(function()
+   userinfo = HttpService:JSONDecode(readfile("Radient.txt"));
+ end)
+ pfp = userinfo["pfp"] or "https://www.roblox.com/headshot-thumbnail/image?userId=".. game.Players.LocalPlayer.UserId .."&width=420&height=420&format=png"
+ user =  userinfo["user"] or game.Players.LocalPlayer.Name
+ tag = userinfo["tag"] or tostring(math.random(1,10))
+ 
+ local function SaveInfo()
+   userinfo["pfp"] = pfp
+   userinfo["user"] = user
+   userinfo["tag"] = tag
+   writefile("Radient.txt", HttpService:JSONEncode(userinfo));
+ end
+local Music = Tabs.Misc:AddSection("Best Musics =)")
+local ListMusics = {'Test','Nevada','RISE AMPYX Remix'}
+local DropdownMusic = Tabs.Misc:AddDropdown("DropdownMusic", {
+    Title = "Select Musics",
+    Values = ListMusics,
+    Multi = false,
+    Default = 1,
+})
+DropdownMusic:SetValue("...") 
+DropdownMusic:OnChanged(function(v)
+    getgenv().SelectMusics = v
+end)
+local TogglePlayMusic = Tabs.Misc:AddToggle("TogglePlayMusic", {Title = "Start Play Music", Default = false })
+TogglePlayMusic:OnChanged(function(v)
+    game.Players.LocalPlayer.Character.HumanoidRootPart.Sound.Playing = v
+end)
+Options.TogglePlayMusic:SetValue(false)
+spawn(function()
+    pcall(function()
+       while wait() do
+       if getgenv().SelectMusics == "Test" then
+          game.Players.LocalPlayer.Character.HumanoidRootPart.Sound.SoundId = ContentProvider.BaseUrl .. "asset/?id=" .. 6443075967
+       end
+       end
+    end)
+  end)
+  spawn(function()
+    pcall(function()
+       while wait() do
+       if getgenv().SelectMusics == "RISE AMPYX Remix" then
+          game.Players.LocalPlayer.Character.HumanoidRootPart.Sound.SoundId = ContentProvider.BaseUrl .. "asset/?id=" .. 17815397455
+       end
+       end
+    end)
+  end)
+  spawn(function()
+    pcall(function()
+       while wait() do
+       if getgenv().SelectMusics == "Nevada" then
+          game.Players.LocalPlayer.Character.HumanoidRootPart.Sound.SoundId = ContentProvider.BaseUrl .. "asset/?id=" .. 17815466245
+       end
+       end
+    end)
+  end)
 --------------------------------------------------------------------------------------------------------------------------------------------
 --Hop
-
 if First_Sea or Second_Sea then
     local Mastery = Tabs.Hop:AddSection("Thid Sea Please !!!")
 end
-
 if Third_Sea then
 local ToggleFindMoon = Tabs.Hop:AddToggle("ToggleFindMoon", {Title = "Find Full Moon",Description = "Tìm trăng tròn", Default = false })
 ToggleFindMoon:OnChanged(function(Value)
