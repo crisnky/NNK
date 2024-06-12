@@ -6807,7 +6807,7 @@ pcall(function()
    userinfo["tag"] = tag
    writefile("Radient.txt", HttpService:JSONEncode(userinfo));
  end
-local Music = Tabs.Misc:AddSection("Best Musics =)")
+local Music = Tabs.Misc:AddSection("Spotify Premium =)")
 local ListMusics = {
     'Quốc Ca Việt Nam',
     'Sad',
