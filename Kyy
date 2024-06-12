@@ -4,9 +4,9 @@ local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.
 -------------------------------------------------------------------------------------------------------------------------------------------
 local Window = Fluent:CreateWindow({
     Title = "Fai Fao 1 year !!!",
-    SubTitle = "[ Blox Fruits ]",
+    SubTitle = "[ Update Music ! ]",
     TabWidth = 160,
-    Size = UDim2.fromOffset(500, 450),
+    Size = UDim2.fromOffset(500, 390),
     Acrylic = true,
     Theme = "Dark",
     MinimizeKey = Enum.KeyCode.LeftControl
