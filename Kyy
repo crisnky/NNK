@@ -6,7 +6,7 @@ local Window = Fluent:CreateWindow({
     Title = "Fai Fao 1 year !!!",
     SubTitle = "[ Update Music ! ]",
     TabWidth = 160,
-    Size = UDim2.fromOffset(500, 390),
+    Size = UDim2.fromOffset(500, 380),
     Acrylic = true,
     Theme = "Dark",
     MinimizeKey = Enum.KeyCode.LeftControl
@@ -6810,6 +6810,8 @@ pcall(function()
 local Music = Tabs.Misc:AddSection("Best Musics =)")
 local ListMusics = {
     'Quốc Ca Việt Nam',
+    'Sad',
+    'MisChief',
     'Stay',
     'Only You',
     'Ocean Eyes',
@@ -6824,6 +6826,8 @@ local ListMusics = {
     'Crab Rave',
     'Unbreakable',
     'Can You ?',
+    'White Tee',
+    'WRLD Hang Up',
     'Free Fire',
     'Chipi Chipi Speed',
     'Blod Blod',
@@ -6838,7 +6842,9 @@ local ListMusics = {
     'Phonk #1',
     'Phonk #2',
     'Phonk #3',
-    'Phonk #4'
+    'Phonk #4',
+    'Phonk #5'
+
 }
 local DropdownMusic = Tabs.Misc:AddDropdown("DropdownMusic", {
     Title = "Select Musics",
@@ -6852,7 +6858,7 @@ DropdownMusic:OnChanged(function(v)
 end)
 local TogglePlayMusic = Tabs.Misc:AddToggle("TogglePlayMusic", {
 Title = "Start Play Music -- Do Not Reset Character",
-Description = "", 
+Description = "Nghe Nhạc -- Tuyệt Đối Không Reset", 
 Default = false })
 TogglePlayMusic:OnChanged(function(Value)
     game.Players.LocalPlayer.Character.HumanoidRootPart.Sound.Playing = Value
@@ -6863,6 +6869,51 @@ spawn(function()
        while wait() do
        if getgenv().SelectMusics == "Quốc Ca Việt Nam" then
           game.Players.LocalPlayer.Character.HumanoidRootPart.Sound.SoundId = ContentProvider.BaseUrl .. "asset/?id=" .. 1845922899
+       end
+       end
+    end)
+  end)
+  spawn(function()
+    pcall(function()
+       while wait() do
+       if getgenv().SelectMusics == "Phonk #5" then
+          game.Players.LocalPlayer.Character.HumanoidRootPart.Sound.SoundId = ContentProvider.BaseUrl .. "asset/?id=" .. 6911766512
+       end
+       end
+    end)
+  end)
+  spawn(function()
+    pcall(function()
+       while wait() do
+       if getgenv().SelectMusics == "MisChief" then
+          game.Players.LocalPlayer.Character.HumanoidRootPart.Sound.SoundId = ContentProvider.BaseUrl .. "asset/?id=" .. 1836362602
+       end
+       end
+    end)
+  end)
+  spawn(function()
+    pcall(function()
+       while wait() do
+       if getgenv().SelectMusics == "WRLD Hang Up" then
+          game.Players.LocalPlayer.Character.HumanoidRootPart.Sound.SoundId = ContentProvider.BaseUrl .. "asset/?id=" .. 5410084188
+       end
+       end
+    end)
+  end)
+  spawn(function()
+    pcall(function()
+       while wait() do
+       if getgenv().SelectMusics == "Sad" then
+          game.Players.LocalPlayer.Character.HumanoidRootPart.Sound.SoundId = ContentProvider.BaseUrl .. "asset/?id=" .. 135308045
+       end
+       end
+    end)
+  end)
+  spawn(function()
+    pcall(function()
+       while wait() do
+       if getgenv().SelectMusics == "White Tee" then
+          game.Players.LocalPlayer.Character.HumanoidRootPart.Sound.SoundId = ContentProvider.BaseUrl .. "asset/?id=" .. 9087418452
        end
        end
     end)
