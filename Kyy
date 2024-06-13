@@ -6810,19 +6810,29 @@ pcall(function()
 local Music = Tabs.Misc:AddSection("Spotify Premium =)")
 local ListMusics = {
     'Quốc Ca Việt Nam',
+    'I Love (slow+reverb version)',
     'Sad',
     'MisChief',
+    'Squid Game',
+    'SOS',
+    '2 Guns',
     'Stay',
+    'Fatal Breath',
+    'Reason to Stay',
     'Only You',
+    'Diss na Hagi Lagi (Nightcore)',
+    'Dream Girl (sped up)',
     'Ocean Eyes',
     'Broken Glass',
     'Same Mistake',
+    'Alone',
     'Thinking About You',
     'Hold On',
     'New World',
     'Rest For Life',
     'Vip Me',
     'Color',
+    'Night Out (feat. Esther Dee)',
     'Crab Rave',
     'Unbreakable',
     'Can You ?',
@@ -6832,6 +6842,8 @@ local ListMusics = {
     'Chipi Chipi Speed',
     'Blod Blod',
     'Play It Cool',
+    'No Sleep',
+    'Shine',
     'Gojo',
     'Gambare Senpai',
     'Din1c-DOWN2KILL',
@@ -6868,6 +6880,114 @@ spawn(function()
        while wait() do
        if getgenv().SelectMusics == "Quốc Ca Việt Nam" then
           game.Players.LocalPlayer.Character.HumanoidRootPart.Sound.SoundId = ContentProvider.BaseUrl .. "asset/?id=" .. 1845922899
+       end
+       end
+    end)
+  end)
+  spawn(function()
+    pcall(function()
+       while wait() do
+       if getgenv().SelectMusics == "Shine" then
+          game.Players.LocalPlayer.Character.HumanoidRootPart.Sound.SoundId = ContentProvider.BaseUrl .. "asset/?id=" .. 1842095470
+       end
+       end
+    end)
+  end)
+  spawn(function()
+    pcall(function()
+       while wait() do
+       if getgenv().SelectMusics == "No Sleep" then
+          game.Players.LocalPlayer.Character.HumanoidRootPart.Sound.SoundId = ContentProvider.BaseUrl .. "asset/?id=" .. 7029011778
+       end
+       end
+    end)
+  end)
+  spawn(function()
+    pcall(function()
+       while wait() do
+       if getgenv().SelectMusics == "Night Out (feat. Esther Dee)" then
+          game.Players.LocalPlayer.Character.HumanoidRootPart.Sound.SoundId = ContentProvider.BaseUrl .. "asset/?id=" .. 1843324953
+       end
+       end
+    end)
+  end)
+  spawn(function()
+    pcall(function()
+       while wait() do
+       if getgenv().SelectMusics == "2 Guns" then
+          game.Players.LocalPlayer.Character.HumanoidRootPart.Sound.SoundId = ContentProvider.BaseUrl .. "asset/?id=" .. 17422075096
+       end
+       end
+    end)
+  end)
+  spawn(function()
+    pcall(function()
+       while wait() do
+       if getgenv().SelectMusics == "I Love (slow+reverb version)" then
+          game.Players.LocalPlayer.Character.HumanoidRootPart.Sound.SoundId = ContentProvider.BaseUrl .. "asset/?id=" .. 15689455422
+       end
+       end
+    end)
+  end)
+  spawn(function()
+    pcall(function()
+       while wait() do
+       if getgenv().SelectMusics == "Alone" then
+          game.Players.LocalPlayer.Character.HumanoidRootPart.Sound.SoundId = ContentProvider.BaseUrl .. "asset/?id=" .. 16190782786
+       end
+       end
+    end)
+  end)
+  spawn(function()
+    pcall(function()
+       while wait() do
+       if getgenv().SelectMusics == "Diss na Hagi Lagi (Nightcore)" then
+          game.Players.LocalPlayer.Character.HumanoidRootPart.Sound.SoundId = ContentProvider.BaseUrl .. "asset/?id=" .. 14366983688
+       end
+       end
+    end)
+  end)
+  spawn(function()
+    pcall(function()
+       while wait() do
+       if getgenv().SelectMusics == "Fatal Breath" then
+          game.Players.LocalPlayer.Character.HumanoidRootPart.Sound.SoundId = ContentProvider.BaseUrl .. "asset/?id=" .. 15689447272
+       end
+       end
+    end)
+  end)
+  spawn(function()
+    pcall(function()
+       while wait() do
+       if getgenv().SelectMusics == "Dream Girl (sped up)" then
+          game.Players.LocalPlayer.Character.HumanoidRootPart.Sound.SoundId = ContentProvider.BaseUrl .. "asset/?id=" .. 15689457918
+       end
+       end
+    end)
+  end)
+  spawn(function()
+    pcall(function()
+       while wait() do
+       if getgenv().SelectMusics == "Reason to Stay" then
+          game.Players.LocalPlayer.Character.HumanoidRootPart.Sound.SoundId = ContentProvider.BaseUrl .. "asset/?id=" .. 9038730676
+       end
+       end
+    end)
+  end)
+  spawn(function()
+    pcall(function()
+       while wait() do
+       if getgenv().SelectMusics == "SOS" then
+          game.Players.LocalPlayer.Character.HumanoidRootPart.Sound.SoundId = ContentProvider.BaseUrl .. "asset/?id=" .. 6901063458
+       end
+       end
+    end)
+  end)
+  spawn(function()
+    pcall(function()
+       while wait() do
+       if getgenv().SelectMusics == "Squid Game" then
+          game.Players.LocalPlayer.Character.HumanoidRootPart.Sound.SoundId = ContentProvider.BaseUrl .. "asset/?id=" .. 7535587224
        end
        end
     end)
