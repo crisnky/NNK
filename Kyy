@@ -1702,6 +1702,274 @@ pcall(function()
    userinfo["tag"] = tag
    writefile("Radient.txt", HttpService:JSONEncode(userinfo));
  end
+------------------------------------------------------------------------------------------------
+--Sea Events
+spawn(function()
+    game:GetService("RunService").Stepped:Connect(function()
+        if NoClip then
+            if not game.Players.LocalPlayer.Character.Head:FindFirstChild("BodyVelocity") then
+                local ag = Instance.new("BodyVelocity")
+                ag.Velocity = Vector3.new(0, 0, 0)
+                ag.MaxForce = Vector3.new(math.huge, math.huge, math.huge)
+                ag.P = 9000
+                ag.Parent = game.Players.LocalPlayer.Character.Head
+                for r, v in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do
+                    if v:IsA("BasePart") then
+                        v.CanCollide = false
+                    end
+                end
+            end
+            for _, v in pairs(game:GetService("Players").LocalPlayer.Character:GetDescendants()) do
+                if v:IsA("BasePart") then
+                    v.CanCollide = false    
+                end
+            end
+        elseif not NoClip and game.Players.LocalPlayer.Character.Head:FindFirstChild("BodyVelocity") then
+            game.Players.LocalPlayer.Character.Head:FindFirstChild("BodyVelocity"):Destroy()
+        end
+    end)
+end)
+function NameMelee()
+    for r, v in next, game:GetService("Players").LocalPlayer.Backpack:GetChildren() do
+        if v:IsA("Tool") and v.ToolTip == "Melee" then
+            return v.Name
+        end
+    end
+    for r, v in next, game:GetService("Players").LocalPlayer.Character:GetChildren() do
+        if v:IsA("Tool") and v.ToolTip == "Melee" then
+            return v.Name
+        end
+    end
+end
+function NameSword()
+    for r, v in next, game:GetService("Players").LocalPlayer.Backpack:GetChildren() do
+        if v:IsA("Tool") and v.ToolTip == "Sword" then
+            return v.Name
+        end
+    end
+    for r, v in next, game:GetService("Players").LocalPlayer.Character:GetChildren() do
+        if v:IsA("Tool") and v.ToolTip == "Sword" then
+            return v.Name
+        end
+    end
+end
+function checkskillDF()
+    if not game:GetService("Players").LocalPlayer.PlayerGui.Main.Skills:FindFirstChild(game:GetService("Players").LocalPlayer.Data.DevilFruit.Value) then
+        equipweapon(game:GetService("Players").LocalPlayer.Data.DevilFruit.Value)
+        return false
+    end
+    for r, v in next, game:GetService("Players").LocalPlayer.PlayerGui.Main.Skills[game:GetService("Players").LocalPlayer.Data.DevilFruit.Value]:GetChildren() do
+        if v:IsA("Frame") then
+            if v.Name ~= "Template" and v.Title.TextColor3 == Color3.new(1, 1, 1) and v.Cooldown.Size == UDim2.new(0, 0, 1, -1) or v.Cooldown.Size == UDim2.new(1, 0, 1, -1)then
+                return v.Name
+            end
+        end
+    end
+end
+function checkskillSword()
+    if not NameSword() then
+        return
+    end
+    if not game:GetService("Players").LocalPlayer.PlayerGui.Main.Skills:FindFirstChild(NameSword()) then
+        equipweapon(NameSword())
+        return false
+    end
+    for r, v in next, game:GetService("Players").LocalPlayer.PlayerGui.Main.Skills[NameSword()]:GetChildren() do
+        if v:IsA("Frame") then
+            if v.Name ~= "Template" and v.Title.TextColor3 == Color3.new(1, 1, 1) and v.Cooldown.Size == UDim2.new(0, 0, 1, -1) or v.Cooldown.Size == UDim2.new(1, 0, 1, -1) then
+                return v.Name
+            end
+        end
+    end
+end
+function NameGun()
+    dick = game.Players.LocalPlayer.Backpack or game.Players.LocalPlayer.Character
+    for r, v in pairs(dick:GetChildren()) do
+        if v:IsA("Tool") and v.ToolTip == "Gun" then
+            return v.Name
+        end
+    end
+end
+function checkskillGun()
+    if not NameGun() then
+        return nil
+    end
+    if not game:GetService("Players").LocalPlayer.PlayerGui.Main.Skills:FindFirstChild(NameGun()) then
+        equipweapon(NameGun())
+        return false
+    end
+    for r, v in next, game:GetService("Players").LocalPlayer.PlayerGui.Main.Skills[NameGun()]:GetChildren() do
+        if v:IsA("Frame") then
+            if v.Name ~= "Template" and v.Title.TextColor3 == Color3.new(1, 1, 1) and v.Cooldown.Size == UDim2.new(0, 0, 1, -1) or v.Cooldown.Size == UDim2.new(1, 0, 1, -1) then
+                return v.Name
+            end
+        end
+    end
+end
+function equipweapon(aq)
+    local c6 = tostring(aq)
+    local c7 = game.Players.LocalPlayer.Backpack:FindFirstChild(c6)
+    local c8 = LP.Character:FindFirstChild("Humanoid") or LP.Character:WaitForChild("Humanoid")
+    if c7 then
+        c8:EquipTool(c7)
+    end
+end
+function checkskillMelee()
+    if not game:GetService("Players").LocalPlayer.PlayerGui.Main.Skills:FindFirstChild(NameMelee()) then
+        equipweapon(NameMelee())
+        return false
+    end
+    for r, v in next, game:GetService("Players").LocalPlayer.PlayerGui.Main.Skills[NameMelee()]:GetChildren() do
+        if v:IsA("Frame") then
+            if v.Name ~= "Template" and v.Title.TextColor3 == Color3.new(1, 1, 1) and v.Cooldown.Size == UDim2.new(0, 0, 1, -1) or v.Cooldown.Size == UDim2.new(1, 0, 1, -1) then
+                return v.Name
+            end
+        end
+    end
+end
+function EquipWeaponName(m)
+    if not m then
+        return
+    end
+    NoClip = true
+    ToolSe = m
+    if game.Players.LocalPlayer.Backpack:FindFirstChild(ToolSe) then
+        local bi = game.Players.LocalPlayer.Backpack:FindFirstChild(ToolSe)
+        wait(.4)
+        game.Players.LocalPlayer.Character.Humanoid:EquipTool(bi)
+    end
+end
+function CheckPirateBoat()
+    local boat = {"PirateBrigade", "PirateGrandBrigade"}
+    for i, v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+        if table.find(boat, v.Name) then
+            return v
+        end
+    end
+end
+function CheckSeaBeast()
+    for r, v in next, game:GetService("Workspace").SeaBeasts:GetChildren() do
+        if v.Name == "SeaBeast1" then
+            local s = v.HealthBBG.Frame.TextLabel.Text
+            local c5 = s:gsub("/%d+,%d+", "")
+            local a = v.HealthBBG.Frame.TextLabel.Text
+            local ab
+            if string.find(c5, ",") then
+                ab = a:gsub("%d+,%d+/", "")
+            else
+                ab = a:gsub("%d+/", "")
+            end
+            local c = ab:gsub(",", "")
+            if tonumber(c) >= 34500 then
+                return v
+            end
+        end
+    end
+    return false
+end
+function CheckBoat()
+    for r, v in next, game:GetService("Workspace").Boats:GetChildren() do
+        if v:IsA("Model") then
+            if v:FindFirstChild("Owner") and tostring(v.Owner.Value) == game:GetService("Players").LocalPlayer.Name and v.Humanoid.Value > 0 then
+                return v
+            end
+        end
+    end
+    return false
+end
+function TeleportSeaBeast(c5)
+    NoClip = true
+    local a = Vector3.new(0, c5:FindFirstChild("HumanoidRootPart").Position.Y, 0)
+    local ab = Vector3.new(0, game:GetService("Workspace").Map["WaterBase-Plane"].Position.Y, 0)
+    if (a - ab).Magnitude <= 175 then
+        Tween(c5.HumanoidRootPart.CFrame * CFrame.new(0, 400, 50))
+    else
+        Tween(CFrame.new(c5.HumanoidRootPart.Position.X, game:GetService("Workspace").Map["WaterBase-Plane"].Position.Y + 200, c5.HumanoidRootPart.Position.Z))
+    end
+    if not CheckSeaBeast() then
+        NoClip = false
+    end
+end
+function GetWeapon(bh)
+    s = ""
+    for r, v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+        if v:IsA("Tool") and v.ToolTip == bh then
+            s = v.Name
+        end
+    end
+    for r, v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
+        if v:IsA("Tool") and v.ToolTip == bh then
+            s = v.Name
+        end
+    end
+    return s
+end
+function IsWpSKillLoaded(bW)
+    if game:GetService("Players")["LocalPlayer"].PlayerGui.Main.Skills:FindFirstChild(bW) then
+        return true
+    end
+end
+function EquipAllWeapon()
+    u3 = {"Melee", "Blox Fruit", "Sword", "Gun"}
+    u3_2 = {}
+    for r, v in pairs(u3) do
+        u3_3 = GetWeapon(v)
+        table.insert(u3_2, u3_3)
+    end
+    for r, v in pairs(u3_2) do
+        if not IsWpSKillLoaded(v) then
+            print(v)
+            EquipWeaponName(v)
+        end
+    end
+end
+function IsWpSKillLoaded(bW)
+    if game:GetService("Players")["LocalPlayer"].PlayerGui.Main.Skills:FindFirstChild(bW) then
+        return true
+    end
+end
+spawn(function()
+    while task.wait() do
+        if getgenv().DiscoveryChannel then
+            AutoHaki()
+            sword = checkskillSword()
+            meele = checkskillMelee()
+            df = checkskillDF()
+            gun = checkskillGun()
+            if df and SpamDFs and not string.find(game:GetService("Players").LocalPlayer.Data.DevilFruit.Value, "Portal") and df ~= "F" then
+                print("Spam Status: Devil Fruit")
+                EquipWeaponName(game:GetService("Players").LocalPlayer.Data.DevilFruit.Value)
+                local OutDoorChannel = checkskillDF()
+                if OutDoorChannel then
+                    SendKeyEvents(OutDoorChannel)
+                end
+            elseif checkskillMelee() and SpamMelees then
+                print("Spam Status: Melee")
+                EquipWeaponName(NameMelee())
+                local OutDoorChannel = checkskillMelee()
+                if OutDoorChannel then
+                    SendKeyEvents(OutDoorChannel)
+                end
+            elseif checkskillSword() and SpamSwords then
+                print("Spam Status: Sword")
+                EquipWeaponName(NameSword())
+                local OutDoorChannel = checkskillSword()
+                if OutDoorChannel then
+                    SendKeyEvents(OutDoorChannel)
+                end
+            elseif checkskillGun() and SpamGuns then
+                print("Spam Status: Gun")
+                local OutDoorChannel = checkskillGun()
+                EquipWeaponName(NameGun())
+                if OutDoorChannel then
+                    SendKeyEvents(OutDoorChannel)
+                end
+            else
+                EquipAllWeapon()
+            end
+        end
+    end
+end)
 --------------------------------------------------------------------------------------------------------------------------------------------
 --Tween
   function Tween2(P1)
@@ -1896,7 +2164,7 @@ function EquipTool(ToolSeo)
 			game.Players.LocalPlayer.Character.Humanoid:EquipTool(tool)
 		end
 	end
---aimbot mastery
+--Aim Mastery
 	spawn(function()
 		local gg = getrawmetatable(game)
 		local old = gg.__namecall
@@ -1927,7 +2195,7 @@ function EquipTool(ToolSeo)
    spawn(function()
 			while task.wait() do
 				pcall(function()
-					if getgenv().TeleportIsland or getgenv().AutoSeaEvents or getgenv().AutoEvoRace or getgenv().CastleRaid or getgenv().CollectAzure or getgenv().TweenToKitsune or getgenv().AutoCandy or getgenv().GhostShip or getgenv().Ship or getgenv().SailBoat or getgenv().Auto_Holy_Torch or getgenv().FindMirageIsland or getgenv().TeleportPly or getgenv().Tweenfruit or getgenv().AutoFishCrew or getgenv().AutoShark or getgenv().AutoCakeV2 or getgenv().AutoMysticIsland or getgenv().AutoQuestRace or getgenv().AutoBuyBoat or getgenv().dao or getgenv().AutoMirage or getgenv().AutoFarmAcient or getgenv().AutoQuestRace or getgenv().Auto_Law or getgenv().AutoAllBoss or AutoTushita or getgenv().AutoHolyTorch or getgenv().AutoTerrorshark or getgenv().farmpiranya or getgenv().DriveMytic or getgenv().AutoCakeV2V2 or PirateShip or getgenv().AutoSeaBeast or getgenv().AutoNear or getgenv().BossRaid or getgenv().GrabChest or AutoCitizen or getgenv().Ectoplasm or AutoEvoRace or AutoBartilo or AutoFactory or BringChestz or BringFruitz or getgenv().AutoLevel or getgenv().Clip2 or AutoFarmNoQuest or getgenv().AutoBone or AutoFarmSelectMonsterQuest or AutoFarmSelectMonsterNoQuest or getgenv().AutoBoss or AutoFarmBossQuest or AutoFarmMasGun or getgenv().AutoMasFruit or AutoFarmSelectArea or AutoSecondSea or AutoThirdSea or AutoDeathStep or AutoSuperhuman or AutoSharkman or AutoElectricClaw or AutoDragonTalon or AutoGodhuman or AutoRengoku or AutoBuddySword or AutoPole or getgenv().AutoHallowSycthe or AutoCavander or AutoTushita or AutoDarkDagger or getgenv().CakePrince or getgenv().AutoElite or AutoRainbowHaki or AutoSaber or AutoFarmKen or AutoKenHop or AutoKenV2 or getgenv().AutoKillPlayerMelee or getgenv().AutoKillPlayerGun or getgenv().AutoKillPlayerFruit or AutoDungeon or getgenv().AutoNextIsland or AutoAdvanceDungeon or Musketeer or RipIndra or Auto_Serpent_Bow or AutoTorch or AutoSoulGuitar or Auto_Cursed_Dual_Katana or getgenv().AutoMaterial or Auto_Quest_Yama_1 or Auto_Quest_Yama_2 or Auto_Quest_Yama_3 or Auto_Quest_Tushita_1 or Auto_Quest_Tushita_2 or Auto_Quest_Tushita_3 or getgenv().Factory or getgenv().SwanGlasses or AutoBartilo or AutoEvoRace or getgenv().Ectoplasm then
+                    if getgenv().TeleportIsland or getgenv().AutoSeaEvents or getgenv().AutoEvoRace or getgenv().CastleRaid or getgenv().CollectAzure or getgenv().TweenToKitsune or getgenv().AutoCandy or getgenv().GhostShip or getgenv().Ship or getgenv().SailBoat or getgenv().Auto_Holy_Torch or getgenv().Tweenfruit or getgenv().FindMirageIsland or getgenv().TeleportPly or getgenv().AutoFishCrew or getgenv().AutoShark or getgenv().AutoMysticIsland or getgenv().AutoCakeV2 or getgenv().AutoQuestRace or getgenv().AutoBuyBoat or getgenv().dao or getgenv().AutoFarmAcient or getgenv().AutoMirage or getgenv().Auto_Law or getgenv().AutoQuestRace or getgenv().AutoAllBoss or getgenv().AutoHolyTorch or AutoTushita or getgenv().farmpiranya or getgenv().AutoTerrorshark or getgenv().AutoNear or getgenv().AutoCakeV2V2 or PirateShip or getgenv().AutoSeaBeast or getgenv().DriveMytic or getgenv().BossRaid or getgenv().GrabChest or AutoCitizen or getgenv().Ectoplasm or AutoEvoRace or AutoBartilo or AutoFactory or BringChestz or BringFruitz or getgenv().AutoLevel or getgenv().Clip2 or AutoFarmNoQuest or getgenv().AutoBone or AutoFarmSelectMonsterQuest or AutoFarmSelectMonsterNoQuest or getgenv().AutoBoss or AutoFarmBossQuest or AutoFarmMasGun or getgenv().AutoMasFruit or AutoFarmSelectArea or AutoSecondSea or AutoThirdSea or AutoDeathStep or AutoSuperhuman or AutoSharkman or AutoElectricClaw or AutoDragonTalon or AutoGodhuman or AutoRengoku or AutoBuddySword or AutoPole or getgenv().AutoHallowSycthe or AutoCavander or AutoTushita or AutoDarkDagger or getgenv().CakePrince or getgenv().AutoElite or AutoRainbowHaki or AutoSaber or AutoFarmKen or AutoKenHop or AutoKenV2 or getgenv().AutoKillPlayerMelee or getgenv().AutoKillPlayerGun or getgenv().AutoKillPlayerFruit or getgenv().AutoNextIsland or getgenv().AutoMaterial or getgenv().Factory or getgenv().SwanGlasses or getgenv().Ectoplasm then
 						if not game:GetService("Players").LocalPlayer.Character.HumanoidRootPart:FindFirstChild("BodyClip") then
 							local Noclip = Instance.new("BodyVelocity")
 							Noclip.Name = "BodyClip"
@@ -1945,7 +2213,7 @@ function EquipTool(ToolSeo)
 spawn(function()
   pcall(function()
     game:GetService("RunService").Stepped:Connect(function()
-      if getgenv().TeleportIsland or getgenv().AutoSeaEvents or getgenv().AutoEvoRace or getgenv().CastleRaid or AutoFarmChest or getgenv().CollectAzure or getgenv().TweenToKitsune or getgenv().AutoCandy or getgenv().GhostShip or getgenv().Ship or getgenv().SailBoat or getgenv().Auto_Holy_Torch or getgenv().Tweenfruit or getgenv().FindMirageIsland or getgenv().TeleportPly or getgenv().AutoFishCrew or getgenv().AutoShark or getgenv().AutoMysticIsland or getgenv().AutoCakeV2 or getgenv().AutoQuestRace or getgenv().AutoBuyBoat or getgenv().dao or getgenv().AutoFarmAcient or getgenv().AutoMirage or getgenv().Auto_Law or getgenv().AutoQuestRace or getgenv().AutoAllBoss or getgenv().AutoHolyTorch or AutoTushita or getgenv().farmpiranya or getgenv().AutoTerrorshark or getgenv().AutoNear or getgenv().AutoCakeV2V2 or PirateShip or getgenv().AutoSeaBeast or getgenv().DriveMytic or getgenv().BossRaid or getgenv().GrabChest or AutoCitizen or getgenv().Ectoplasm or AutoEvoRace or AutoBartilo or AutoFactory or BringChestz or BringFruitz or getgenv().AutoLevel or getgenv().Clip2 or AutoFarmNoQuest or getgenv().AutoBone or AutoFarmSelectMonsterQuest or AutoFarmSelectMonsterNoQuest or getgenv().AutoBoss or AutoFarmBossQuest or AutoFarmMasGun or getgenv().AutoMasFruit or AutoFarmSelectArea or AutoSecondSea or AutoThirdSea or AutoDeathStep or AutoSuperhuman or AutoSharkman or AutoElectricClaw or AutoDragonTalon or AutoGodhuman or AutoRengoku or AutoBuddySword or AutoPole or getgenv().AutoHallowSycthe or AutoCavander or AutoTushita or AutoDarkDagger or getgenv().CakePrince or getgenv().AutoElite or AutoRainbowHaki or AutoSaber or AutoFarmKen or AutoKenHop or AutoKenV2 or getgenv().AutoKillPlayerMelee or getgenv().AutoKillPlayerGun or getgenv().AutoKillPlayerFruit or AutoDungeon or getgenv().AutoNextIsland or AutoAdvanceDungeon or Musketeer or RipIndra or Auto_Serpent_Bow or AutoTorch or AutoSoulGuitar or Auto_Cursed_Dual_Katana or getgenv().AutoMaterial or Auto_Quest_Yama_1 or Auto_Quest_Yama_2 or Auto_Quest_Yama_3 or Auto_Quest_Tushita_1 or Auto_Quest_Tushita_2 or Auto_Quest_Tushita_3 or getgenv().Factory or getgenv().SwanGlasses or getgenv().Ectoplasm then
+        if getgenv().TeleportIsland or getgenv().AutoSeaEvents or getgenv().AutoEvoRace or getgenv().CastleRaid or getgenv().CollectAzure or getgenv().TweenToKitsune or getgenv().AutoCandy or getgenv().GhostShip or getgenv().Ship or getgenv().SailBoat or getgenv().Auto_Holy_Torch or getgenv().Tweenfruit or getgenv().FindMirageIsland or getgenv().TeleportPly or getgenv().AutoFishCrew or getgenv().AutoShark or getgenv().AutoMysticIsland or getgenv().AutoCakeV2 or getgenv().AutoQuestRace or getgenv().AutoBuyBoat or getgenv().dao or getgenv().AutoFarmAcient or getgenv().AutoMirage or getgenv().Auto_Law or getgenv().AutoQuestRace or getgenv().AutoAllBoss or getgenv().AutoHolyTorch or AutoTushita or getgenv().farmpiranya or getgenv().AutoTerrorshark or getgenv().AutoNear or getgenv().AutoCakeV2V2 or PirateShip or getgenv().AutoSeaBeast or getgenv().DriveMytic or getgenv().BossRaid or getgenv().GrabChest or AutoCitizen or getgenv().Ectoplasm or AutoEvoRace or AutoBartilo or AutoFactory or BringChestz or BringFruitz or getgenv().AutoLevel or getgenv().Clip2 or AutoFarmNoQuest or getgenv().AutoBone or AutoFarmSelectMonsterQuest or AutoFarmSelectMonsterNoQuest or getgenv().AutoBoss or AutoFarmBossQuest or AutoFarmMasGun or getgenv().AutoMasFruit or AutoFarmSelectArea or AutoSecondSea or AutoThirdSea or AutoDeathStep or AutoSuperhuman or AutoSharkman or AutoElectricClaw or AutoDragonTalon or AutoGodhuman or AutoRengoku or AutoBuddySword or AutoPole or getgenv().AutoHallowSycthe or AutoCavander or AutoTushita or AutoDarkDagger or getgenv().CakePrince or getgenv().AutoElite or AutoRainbowHaki or AutoSaber or AutoFarmKen or AutoKenHop or AutoKenV2 or getgenv().AutoKillPlayerMelee or getgenv().AutoKillPlayerGun or getgenv().AutoKillPlayerFruit or getgenv().AutoNextIsland or getgenv().AutoMaterial or getgenv().Factory or getgenv().SwanGlasses or getgenv().Ectoplasm then
       for i,v in pairs(game:GetService("Players").LocalPlayer.Character:GetDescendants()) do
       if v:IsA("BasePart") then
       v.CanCollide = false
@@ -2113,8 +2381,6 @@ function to(p)
 			end
 		end)
 	end
-
---------------------------------------------------------------------------------------------------------------------------------------------
 ---Close UI
 local Ui = game.CoreGui:WaitForChild("RobloxGui"):WaitForChild("Modules"):FindFirstChild("dsfwefwfwdfsfasdadaxczcw")
 if Ui then
@@ -3360,6 +3626,312 @@ Tabs.Main:AddButton({
         NoFog()
     end
 })
+--[[
+Tabs.Main:AddParagraph({
+    Title = "",
+    Content = "Farm Mobs"
+})
+local ToggleAutoSeaEvents = Tabs.Main:AddToggle("ToggleAutoSeaEvents", {
+    Title = "Auto Sea Events",
+    Description = "", 
+    Default = false })
+ToggleAutoSeaEvents:OnChanged(function(Value)
+        getgenv().AutoSeaEvents = Value
+end)
+Options.ToggleAutoSeaEvents:SetValue(false)
+healthlow = 4000
+spawn(function()
+    while task.wait() do
+        if getgenv().AutoSeaEvents then
+            pcall(function()
+                if not CheckSeaBeast() and not CheckPirateBoat() and not Enemies:FindFirstChild("Shark") and not Enemies:FindFirstChild("Piranha") and not Enemies:FindFirstChild("Terrorshark") and not Enemies:FindFirstChild("Fish Crew Member") and not Enemies:FindFirstChild("FishBoat") then
+                    if not CheckBoat() then
+                        if (Vector3Boat - LP.Character.HumanoidRootPart.Position).Magnitude > 2000 then
+                            BypassTele(CFrameBoat)
+                        else
+                            Tween(CFrameBoat)
+                            NoClip = true
+                            if (Vector3Boat - LP.Character.HumanoidRootPart.Position).Magnitude < 20 then
+                                game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyBoat", BoatNameBuy)
+                            end
+                        end
+                    elseif CheckBoat() and not WO.Locations:FindFirstChild("Rough Sea") then
+                        if (CheckBoat().VehicleSeat.Position - Vector3Boat).Magnitude > 50 then
+                            CheckBoat().VehicleSeat.CFrame = ZoneCFrame
+                        end
+                        if not game:GetService("Players").LocalPlayer.Character.Humanoid.Sit then
+                            NoClip = true
+                            Tween(CheckBoat().VehicleSeat.CFrame)
+                        else
+                            NoClip = false
+                        end
+                    elseif CheckBoat() and WO.Locations:FindFirstChild("Rough Sea") then
+                        if LP.Character.Humanoid.Sit then
+                            LP.Character.Humanoid.Sit = false
+                        end
+                        if (CheckBoat().VehicleSeat.Position - Vector3Boat).Magnitude > 50 then
+                            CheckBoat().VehicleSeat.CFrame = CFrame.new(-28464.876953125, 12.553319931030273, 6896.8076171875)
+                        end
+                        if not game:GetService("Players").LocalPlayer.Character.Humanoid.Sit then
+                            NoClip = true
+                            Tween(CheckBoat().VehicleSeat.CFrame)
+                        else
+                            NoClip = false
+                        end
+                    elseif not CheckBoat() and WO.Locations:FindFirstChild("Rough Sea") then
+                        if (Vector3Boat - LP.Character.HumanoidRootPart.Position).Magnitude > 2000 then
+                            BypassTele(CFrameBoat)
+                        end
+                    end
+                elseif CheckPirateBoat() then
+                    if game:GetService("Players").LocalPlayer.Character.Humanoid.Sit then
+                        game:GetService("Players").LocalPlayer.Character.Humanoid.Sit = false
+                    end
+                    for i,v in pairs(Enemies:GetChildren()) do
+                        if v:FindFirstChild("Engine") then
+                            repeat task.wait()
+                                Tween(v.Engine.CFrame * CFrame.new(0, -20, 0))
+                                getgenv().DiscoveryChannel = true
+                                NoClip = true
+                                getgenv().ManChannel = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0, -5, 0)
+                            until not v or not v.Parent or v.Health.Value <= 0 or not CheckPirateBoat() or not getgenv().AutoSeaEvents
+                            getgenv().ManChannel = nil
+                            getgenv().DiscoveryChannel = false
+                            NoClip = false
+                        end
+                    end
+                elseif CheckSeaBeast() then
+                    if LP.Character.Humanoid.Sit then
+                        LP.Character.Humanoid.Sit = false
+                    end
+                    local v = CheckSeaBeast()
+                    repeat
+                        task.wait()
+                        if LP.Character.Humanoid.Health > 8000 then
+                            spawn(TeleportSeaBeast(v), 1)
+                            getgenv().DiscoveryChannel = true
+                        elseif LP.Character.Humanoid.Health <= healthlow then
+                            if YTween then
+                                Tween(v.HumanoidRootPart.CFrame * CFrame.new(0,600,0))
+                                getgenv().DiscoveryChannel = false
+                            else
+                                spawn(TeleportSeaBeast(v), 1)
+                                getgenv().DiscoveryChannel = true
+                            end
+                        end
+                        NoClip = true
+                        getgenv().ManChannel = LP.Character.HumanoidRootPart.CFrame * CFrame.new(0, -5, 0)
+                    until not v or not v.Parent or v.Health.Value <= 0 or not CheckSeaBeast() or not getgenv().AutoSeaEvents
+                    getgenv().ManChannel = nil
+                    getgenv().DiscoveryChannel = false
+                    NoClip = false
+                elseif Enemies:FindFirstChild("Shark") then
+                    if LP.Character.Humanoid.Sit then
+                        LP.Character.Humanoid.Sit = false
+                    end
+                    for i,v in pairs(Enemies:GetChildren()) do
+                        if v.Name == "Shark" and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
+                            repeat wait(getgenv().Fast_Delay)
+                                AttackNoCoolDown()
+                                AutoHaki()
+                                EquipTool(SelectWeapon)
+                                if game.Players.LocalPlayer.Character.Humanoid.Health > 8000 then
+                                    Tween(v.HumanoidRootPart.CFrame * CFrame.new(0,30,0))
+                                    
+                                elseif game.Players.LocalPlayer.Character.Humanoid.Health <= healthlow then
+                                    if YTween then
+                                        Tween(v.HumanoidRootPart.CFrame * CFrame.new(0,600,0))
+                                    else
+                                        Tween(v.HumanoidRootPart.CFrame * CFrame.new(0,30,0))
+
+                                    end
+                                end
+                                NoClip = true
+                            until not Enemies:FindFirstChild("Shark") or v.Humanoid.Health <= 0 or not getgenv().AutoSeaEvents
+                            NoClip = false
+                        end
+                    end
+                elseif Enemies:FindFirstChild("Piranha") then
+                    if LP.Character.Humanoid.Sit then
+                        LP.Character.Humanoid.Sit = false
+                    end
+                    for i,v in pairs(Enemies:GetChildren()) do
+                        if v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Piranha") and v.Humanoid.Health > 0 then
+                            repeat wait(getgenv().Fast_Delay)
+                                AttackNoCoolDown()
+                                AutoHaki()
+                                EquipTool(SelectWeapon)
+                                if game.Players.LocalPlayer.Character.Humanoid.Health > 8000 then
+                                    Tween(v.HumanoidRootPart.CFrame * CFrame.new(0,30,0))
+                                    
+                                elseif game.Players.LocalPlayer.Character.Humanoid.Health <= healthlow then
+                                    if YTween then
+                                        Tween(v.HumanoidRootPart.CFrame * CFrame.new(0,600,0))
+                                    else
+                                        Tween(v.HumanoidRootPart.CFrame * CFrame.new(0,30,0))
+
+                                    end
+                                end
+                                NoClip = true
+                            until not Enemies:FindFirstChild("Piranha") or v.Humanoid.Health <= 0 or not getgenv().AutoSeaEvents
+                            NoClip = false
+                        end
+                    end
+                elseif Enemies:FindFirstChild("Terrorshark") then
+                    if LP.Character.Humanoid.Sit then
+                        LP.Character.Humanoid.Sit = false
+                    end
+                    for i,v in pairs(Enemies:GetChildren()) do
+                        if v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
+                            repeat wait(getgenv().Fast_Delay)
+                                AttackNoCoolDown()
+                                AutoHaki()
+                                EquipTool(SelectWeapon)
+                                NoClip = true
+                                if game.Players.LocalPlayer.Character.Humanoid.Health > 8000 then
+                                    Tween(v.HumanoidRootPart.CFrame * CFrame.new(0,40,0))
+                                    
+                                elseif game.Players.LocalPlayer.Character.Humanoid.Health <= healthlow then
+                                    if YTween then
+                                        Tween(v.HumanoidRootPart.CFrame * CFrame.new(0,600,0))
+                                    else
+                                        Tween(v.HumanoidRootPart.CFrame * CFrame.new(0,40,0))
+
+                                    end
+                                end
+                            until not Enemies:FindFirstChild("Terrorshark") or v.Humanoid.Health <= 0 or not getgenv().AutoSeaEvents
+                            NoClip = false
+                        end
+                    end
+                elseif Enemies:FindFirstChild("FishBoat") and Enemies:FindFirstChild("Fish Crew Member") then
+                    if LP.Character.Humanoid.Sit then
+                        LP.Character.Humanoid.Sit = false
+                    end
+                    for i,v in pairs(Enemies:GetChildren()) do
+                        if v:FindFirstChild("VehicleSeat") then
+                            repeat wait(getgenv().Fast_Delay)
+                                AttackNoCoolDown()
+                                AutoHaki()
+                                EquipTool(SelectWeapon)
+                                Tween(v.VehicleSeat.CFrame * CFrame.new(0, -10, 0))
+                                getgenv().DiscoveryChannel = true
+                                NoClip = true
+                                getgenv().ManChannel = LP.Character.HumanoidRootPart.CFrame * CFrame.new(0, -5, 0)
+                            until not v or not v.Parent or v.Health.Value <= 0 or not Enemies:FindFirstChild("FishBoat") or not getgenv().AutoSeaEvents
+                            getgenv().ManChannel = nil
+                            getgenv().DiscoveryChannel = false
+                            NoClip = false
+                        end
+                    end
+                elseif not Enemies:FindFirstChild("FishBoat") and Enemies:FindFirstChild("Fish Crew Member") then
+                    if LP.Character.Humanoid.Sit then
+                        LP.Character.Humanoid.Sit = false
+                    end
+                    for i,v in pairs(Enemies:GetChildren()) do
+                        if v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Fish Crew Member") and v.Humanoid.Health > 0 then
+                            repeat wait(getgenv().Fast_Delay)
+                                AttackNoCoolDown()
+                                AutoHaki()
+                                EquipTool(SelectWeapon)
+                                NoClip = true
+                                if game.Players.LocalPlayer.Character.Humanoid.Health > 8000 then
+                                    Tween(v.HumanoidRootPart.CFrame * CFrame.new(0,40,0))
+                                    
+                                elseif game.Players.LocalPlayer.Character.Humanoid.Health <= healthlow then
+                                    if YTween then
+                                        Tween(v.HumanoidRootPart.CFrame * CFrame.new(0,600,0))
+                                    else
+                                        Tween(v.HumanoidRootPart.CFrame * CFrame.new(0,40,0))
+
+                                    end
+                                end
+                            until not Enemies:FindFirstChild("Fish Crew Member") or v.Humanoid.Health <= 0 or not getgenv().AutoSeaEvents
+                            NoClip = false
+                        end
+                    end
+                end
+            end)
+        end
+    end       
+end)
+YTween = true
+if Second_Sea then
+    CFrameBoat = CFrame.new(-13.488054275512695, 10.311711311340332, 2927.69287109375)
+    Vector3Boat = Vector3.new(-13.488054275512695, 10.311711311340332, 2927.69287109375)
+elseif Third_Sea then
+    CFrameBoat = CFrame.new(-16207.501953125, 9.0863618850708, 475.1490783691406)
+    Vector3Boat = Vector3.new(-16207.501953125, 9.0863618850708, 475.1490783691406)
+end
+local DropdownBoats = Tabs.Main:AddDropdown("DropdownBoats", {
+    Title = "Boats List",
+    Values = {"PirateBrigade", "PirateGrandBrigade"},
+    Multi = false,
+    Default = 1,
+})
+DropdownBoats:SetValue("")
+DropdownBoats:OnChanged(function(Value)
+    getgenv().BoatSelect = Value
+end)
+
+local DropdownZones = Tabs.Main:AddDropdown("DropdownZones", {
+    Title = "Zones List",
+    Values = {"Zone 1", "Zone 2", "Zone 3", "Zone 4", "Zone 5", "Zone 6"},
+    Multi = false,
+    Default = 1,
+})
+DropdownZones:SetValue("")
+DropdownZones:OnChanged(function(Value)
+    getgenv().ZoneSelect = Value
+end)
+SpamMelees = true
+SpamSwords = true
+SpamGuns = true
+SpamDFs = true
+game:GetService("RunService").RenderStepped:Connect(function()
+    if getgenv().BoatSelect == "PirateBrigade" then
+        BoatNameBuy = "PirateBrigade"
+    elseif getgenv().BoatSelect == "PirateGrandBrigade" then
+        BoatNameBuy = "PirateGrandBrigade"
+    end
+    if getgenv().ZoneSelect == "Zone 1" then
+        if getgenv().BoatSelect == "PirateBrigade" then
+            ZoneCFrame = CFrame.new(-21313.607421875, 12.560698509216309, 1330.6165771484375)
+        elseif getgenv().BoatSelect == "PirateGrandBrigade" then
+            ZoneCFrame = CFrame.new(-21313.607421875, 45.95185470581055, 1330.6165771484375)
+        end
+    elseif getgenv().ZoneSelect == "Zone 2" then
+        if getgenv().BoatSelect == "PirateBrigade" then
+            ZoneCFrame = CFrame.new(-24815.267578125, 12.560657501220703, 5262.62060546875)
+        elseif getgenv().BoatSelect == "PirateGrandBrigade" then
+            ZoneCFrame = CFrame.new(-24815.267578125, 45.90665817260742, 5262.62060546875)
+        end
+    elseif getgenv().ZoneSelect == "Zone 3" then
+        if getgenv().BoatSelect == "PirateBrigade" then
+            ZoneCFrame = CFrame.new(-28464.876953125, 12.553319931030273, 6896.8076171875)
+        elseif getgenv().BoatSelect == "PirateGrandBrigade" then
+            ZoneCFrame = CFrame.new(-28464.876953125, 45.90665817260742, 6896.8076171875)
+        end
+    elseif getgenv().ZoneSelect == "Zone 4" then
+        if getgenv().BoatSelect == "PirateBrigade" then
+            ZoneCFrame = CFrame.new(-30294.8515625, 12.554117202758789, 10409.8564453125)
+        elseif getgenv().BoatSelect == "PirateGrandBrigade" then
+            ZoneCFrame = CFrame.new(-30294.8515625, 45.95185470581055, 10409.8564453125)
+        end
+    elseif getgenv().ZoneSelect == "Zone 5" then
+        if getgenv().BoatSelect == "PirateBrigade" then
+            ZoneCFrame = CFrame.new(-37704.828125, 12.561018943786621, 6750.69873046875)
+        elseif getgenv().BoatSelect == "PirateGrandBrigade" then
+            ZoneCFrame = CFrame.new(-37704.828125, 45.90665817260742, 6750.69873046875)
+        end
+    elseif getgenv().ZoneSelect == "Zone 6" or getgenv().ZoneSelect == nil then
+        if getgenv().BoatSelect == "PirateBrigade" then
+            ZoneCFrame = CFrame.new(-32704.103515625, 12.557344436645508, 24089.923828125)
+        elseif getgenv().BoatSelect == "PirateGrandBrigade" then
+            ZoneCFrame = CFrame.new(-32704.103515625, 45.90665817260742, 24089.923828125)
+        end
+    end
+end)
+]]
 -------------------------------------------------------------------------------------------------------------------------------------------
     local AutoElite = Tabs.Main:AddSection("Elite Hunter Farm")
     local StatusElite = Tabs.Main:AddParagraph({
@@ -4829,6 +5401,24 @@ Tabs.Teleport:AddButton({
     })
 --------------------------------------------------------------------------------------------------------------------------------------------
 --Fruit
+local P = game:GetService("Players")
+local LP = P.LocalPlayer
+local PG = LP.PlayerGui
+local RS = game:GetService("ReplicatedStorage")
+local Remotes = RS:WaitForChild("Remotes")
+local Remote = Remotes:WaitForChild("CommF_")
+local RunS = game:GetService("RunService")
+local Loop = RunS.RenderStepped
+local Data = LP.Data
+local WS = game:GetService("Workspace")
+local WO = WS["_WorldOrigin"]
+local VU = game:GetService("VirtualUser")
+local EnemySpawns = WO.EnemySpawns
+local Enemies = WS.Enemies
+local CameraShaker = require(RS.Util.CameraShaker)
+local GuideModule = require(RS.GuideModule)
+local Quests = require(RS.Quests)
+local VIM = game:service("VirtualInputManager")
 local Remote_GetFruits = game.ReplicatedStorage:FindFirstChild("Remotes").CommF_:InvokeServer("GetFruits");
 Table_DevilFruitSniper = {}
 ShopDevilSell = {}
@@ -4884,13 +5474,13 @@ spawn(function()
 end)
 local ToggleRandomFruit = Tabs.Fruit:AddToggle("ToggleRandomFruit", {Title = "Random Fruit",Description = "Đổi Trái", Default = false })
 ToggleRandomFruit:OnChanged(function(Value)
-    getgenv().Random_Auto = Value
+    getgenv().RandomFruits = Value
 end)
 Options.ToggleRandomFruit:SetValue(false)
 spawn(function()
     pcall(function()
         while wait(.1) do
-            if getgenv().Random_Auto then
+            if getgenv().RandomFruits then
                 game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Cousin","Buy")
             end 
         end
